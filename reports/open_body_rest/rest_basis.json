@@ -1,0 +1,183 @@
+{
+ "script": "scripts/build_open_rest_basis.py",
+ "run_at": "2026-11-12T23:39:36",
+ "mdfm_head": "8f90e4e",
+ "knots": {
+  "gender": [
+   0.0,
+   0.5,
+   1.0
+  ],
+  "age": [
+   0.5,
+   0.6666666666666666,
+   1.0
+  ],
+  "muscle": [
+   0.0,
+   0.5,
+   1.0
+  ],
+  "weight": [
+   0.0,
+   0.5,
+   1.0
+  ],
+  "height": [
+   0.0,
+   0.5,
+   1.0
+  ],
+  "proportions": [
+   0.0,
+   1.0
+  ]
+ },
+ "keys": [
+  "gender",
+  "age",
+  "muscle",
+  "weight",
+  "height",
+  "proportions"
+ ],
+ "domain": {
+  "gender": [
+   0.0,
+   1.0
+  ],
+  "age": [
+   0.5,
+   1.0
+  ],
+  "muscle": [
+   0.0,
+   1.0
+  ],
+  "weight": [
+   0.0,
+   1.0
+  ],
+  "height": [
+   0.0,
+   1.0
+  ],
+  "proportions": [
+   0.0,
+   1.0
+  ]
+ },
+ "n_nodes": 486,
+ "node_reproduction_max_abs_m": 0.0,
+ "values": "reports/open_body_rest/rest_basis_values.json",
+ "values_sha256": "4286c0720abe6fe6afaea54dcf167a52d4037bb9c938aa46d30b48441cb6135f",
+ "seconds_nodes": 37.6,
+ "seconds_per_adapter_rest": 0.0762,
+ "held_out": {
+  "n": 232,
+  "max_joint_error_m": 0.0009455671525411864,
+  "mean_joint_error_m": 9.455833919218634e-05,
+  "p99_joint_error_m": 0.0005943885412301413,
+  "max_by_joint_m": {
+   "pelvis": 4.6837044292437244e-08,
+   "left_hip": 4.932221691566852e-08,
+   "right_hip": 4.932221691566852e-08,
+   "spine1": 4.618638704231959e-08,
+   "left_knee": 0.0005816855329573042,
+   "right_knee": 0.0005816855329573042,
+   "spine2": 4.5540938713892276e-08,
+   "left_ankle": 0.0009455603366741526,
+   "right_ankle": 0.0009455603366741526,
+   "spine3": 4.4030273018565595e-08,
+   "left_foot": 0.0009455671525411864,
+   "right_foot": 0.0009455671525411864,
+   "neck": 4.457068998644414e-08,
+   "left_collar": 5.210954870505579e-08,
+   "right_collar": 5.210954870505579e-08,
+   "head": 5.4834304107144305e-08,
+   "left_shoulder": 5.039119890835577e-08,
+   "right_shoulder": 5.039119890835577e-08,
+   "left_elbow": 0.0002805583077235987,
+   "right_elbow": 0.0002807439908207614,
+   "left_wrist": 0.000473726227687598,
+   "right_wrist": 0.000473726227687598
+  }
+ },
+ "held_out_cell_centres": {
+  "n": 32,
+  "max_joint_error_m": 0.0006920232857492538,
+  "mean_joint_error_m": 0.00012280937281357145,
+  "p99_joint_error_m": 0.0006716829252208743,
+  "max_by_joint_m": {
+   "pelvis": 2.6352401217785815e-08,
+   "left_hip": 2.355283431299125e-08,
+   "right_hip": 2.355283431299125e-08,
+   "spine1": 3.68581425593956e-08,
+   "left_knee": 0.0004569500530347646,
+   "right_knee": 0.0004569500530347646,
+   "spine2": 2.9462586619033444e-08,
+   "left_ankle": 0.0006920152126617653,
+   "right_ankle": 0.0006920152126617653,
+   "spine3": 1.717932521525433e-08,
+   "left_foot": 0.0006920232857492538,
+   "right_foot": 0.0006920232857492538,
+   "neck": 2.0225148357832852e-08,
+   "left_collar": 1.890139329488186e-08,
+   "right_collar": 1.890139329488186e-08,
+   "head": 3.033390234639584e-08,
+   "left_shoulder": 2.4566279478261466e-08,
+   "right_shoulder": 2.4566279478261466e-08,
+   "left_elbow": 0.00022803938981389978,
+   "right_elbow": 0.00022808077551592757,
+   "left_wrist": 0.0004414778013657257,
+   "right_wrist": 0.00045522600741574216
+  }
+ },
+ "held_out_random": {
+  "n": 200,
+  "max_joint_error_m": 0.0009455671525411864,
+  "mean_joint_error_m": 9.003817381276471e-05,
+  "p99_joint_error_m": 0.0005622453053982621,
+  "max_by_joint_m": {
+   "pelvis": 4.6837044292437244e-08,
+   "left_hip": 4.932221691566852e-08,
+   "right_hip": 4.932221691566852e-08,
+   "spine1": 4.618638704231959e-08,
+   "left_knee": 0.0005816855329573042,
+   "right_knee": 0.0005816855329573042,
+   "spine2": 4.5540938713892276e-08,
+   "left_ankle": 0.0009455603366741526,
+   "right_ankle": 0.0009455603366741526,
+   "spine3": 4.4030273018565595e-08,
+   "left_foot": 0.0009455671525411864,
+   "right_foot": 0.0009455671525411864,
+   "neck": 4.457068998644414e-08,
+   "left_collar": 5.210954870505579e-08,
+   "right_collar": 5.210954870505579e-08,
+   "head": 5.4834304107144305e-08,
+   "left_shoulder": 5.039119890835577e-08,
+   "right_shoulder": 5.039119890835577e-08,
+   "left_elbow": 0.0002805583077235987,
+   "right_elbow": 0.0002807439908207614,
+   "left_wrist": 0.000473726227687598,
+   "right_wrist": 0.000473726227687598
+  }
+ },
+ "random_seed": 20261112,
+ "tolerance_m": 0.001,
+ "p3_decision": "basis",
+ "joint_map_sha256": "b4981a6f02f384d52768dd931f9b5179698ecb6dee7262a0ea764c316c1f8679",
+ "licence": {
+  "backend": "anny",
+  "anny_version": "0.6.2",
+  "data_version": 14,
+  "topology": "anny",
+  "rig": "anny",
+  "licences_sha256": {
+   "anny code (Apache-2.0)": "1d459b13c9650c763d6351ce21ad3b02433c80131195cf9d908de4fbc213cf27",
+   "anny data/mpfb2 (CC0 1.0)": "f6089cba01cb570a24712b41ab8a586ccd3cc5ef53dc266ca50b95c288956d2c",
+   "README licence section (data/faceunits01 CC0, data/soma Apache-2.0, smplx non-commercial download)": "ff01a3e7cc32e5ec7bb9a81e7d256b9ac44082950d4fd22749959d7a6e0632a6"
+  },
+  "joint_map_sha256": "b4981a6f02f384d52768dd931f9b5179698ecb6dee7262a0ea764c316c1f8679"
+ }
+}

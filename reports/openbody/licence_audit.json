@@ -1,0 +1,320 @@
+{
+ "script": "scripts/openbody_audit.py",
+ "run_at": "2026-11-12T11:34:22",
+ "mode": "pinned cache",
+ "anny_version": "0.6.2",
+ "anny_package": "<conda>/envs/mdfm/Lib/site-packages/anny",
+ "cache_dir": "<store>/anny_cache",
+ "load": {
+  "rig": "anny",
+  "topology": "anny",
+  "skinning": "lbs",
+  "seconds": 1.31,
+  "bones": 104,
+  "vertices": 13718,
+  "faces": 27420
+ },
+ "network_events": [
+  [
+   "socket.gethostname",
+   "()",
+   [
+    "<repo>/scripts/openbody_audit.py:253",
+    "<repo>/scripts/openbody_audit.py:137",
+    "synth/openbody.py:56",
+    "torch/__init__.py:285",
+    "torch/__init__.py:244",
+    "<conda>/envs/mdfm/Lib/platform.py:963",
+    "<conda>/envs/mdfm/Lib/platform.py:852",
+    "<conda>/envs/mdfm/Lib/platform.py:590"
+   ]
+  ]
+ ],
+ "process_events": [
+  [
+   "subprocess.Popen",
+   "('C:\\\\WINDOWS\\\\system32\\\\cmd.exe', 'C:\\\\WINDOWS\\\\system32\\\\cmd.exe /c \"ver\"', None, None)",
+   [
+    "<repo>/scripts/openbody_audit.py:137",
+    "synth/openbody.py:56",
+    "torch/__init__.py:285",
+    "torch/__init__.py:244",
+    "<conda>/envs/mdfm/Lib/platform.py:963",
+    "<conda>/envs/mdfm/Lib/platform.py:861",
+    "<conda>/envs/mdfm/Lib/platform.py:371",
+    "<conda>/envs/mdfm/Lib/platform.py:284",
+    "<conda>/envs/mdfm/Lib/subprocess.py:466",
+    "<conda>/envs/mdfm/Lib/subprocess.py:548",
+    "<conda>/envs/mdfm/Lib/subprocess.py:1026",
+    "<conda>/envs/mdfm/Lib/subprocess.py:1534"
+   ]
+  ]
+ ],
+ "files_written_by_python": [],
+ "cache_before": {
+  "v14/build_compact_model_data_404d18204cb4a7d334eacadcf17850cf.safetensors": 51038544,
+  "v14/build_model_data_93dd57e16147875014c822a2d61d80ee.safetensors": 215931192,
+  "v14/load_data_3027bbddc92320648cf167e3290a1477.safetensors": 561253624
+ },
+ "cache_after": {
+  "v14/build_compact_model_data_404d18204cb4a7d334eacadcf17850cf.safetensors": 51038544,
+  "v14/build_model_data_93dd57e16147875014c822a2d61d80ee.safetensors": 215931192,
+  "v14/load_data_3027bbddc92320648cf167e3290a1477.safetensors": 561253624
+ },
+ "cache_new_files": [],
+ "cache_files_opened": {},
+ "nonfree_cache_entries": [],
+ "default_cache_~/.cache/anny": {
+  "existed_before": false,
+  "exists_after": false
+ },
+ "modules": {
+  "anny.models.smpl": false,
+  "anny.models.retopology": false,
+  "smplx": false,
+  "chumpy": false,
+  "requests": false,
+  "warp": false,
+  "trimesh": false,
+  "anny.models.soma": false,
+  "anny.keypoints": true
+ },
+ "nonfree_packages_installed": [],
+ "refusals": {
+  "topology smplx": "refused: OpenBodyRefused: topology 'smplx' is outside the allow list ('anny',)",
+  "topology smpl": "refused: OpenBodyRefused: topology 'smpl' is outside the allow list ('anny',)",
+  "topology soma": "refused: OpenBodyRefused: topology 'soma' is outside the allow list ('anny',)",
+  "rig soma": "refused: OpenBodyRefused: rig 'soma' is outside the allow list ('anny',)",
+  "rig makehuman": "refused: OpenBodyRefused: rig 'makehuman' is outside the allow list ('anny',)",
+  "import anny.models.smpl": "refused: ImportError: anny.models.smpl: blocked by mdfm.synth.openbody (it reaches a non-free asset)",
+  "import anny.models.retopology": "refused: ImportError: anny.models.retopology: blocked by mdfm.synth.openbody (it reaches a non-free asset)",
+  "import smplx": "refused: ImportError: smplx: blocked by mdfm.synth.openbody (it reaches a non-free asset)",
+  "anny.paths.get_anny2smplx_data_path": "refused: OpenBodyRefused: the non-commercial Anny assets (SMPL and SMPL-X topologies) are refused by mdfm.synth.openbody",
+  "anny.paths.get_anny2smpl_data_path": "refused: OpenBodyRefused: the non-commercial Anny assets (SMPL and SMPL-X topologies) are refused by mdfm.synth.openbody",
+  "anny.paths.download_noncommercial_data": "refused: OpenBodyRefused: the non-commercial Anny assets (SMPL and SMPL-X topologies) are refused by mdfm.synth.openbody"
+ },
+ "anny_files_opened": {
+  "count": 0,
+  "by_folder": {},
+  "sha256_of_(path, sha256)_list": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "record_integrity": {
+   "checked": 0,
+   "match": 0,
+   "mismatch": []
+  },
+  "files": []
+ },
+ "licences": {
+  "anny code (Apache-2.0)": {
+   "file": "anny-0.6.2.dist-info/licenses/LICENSE",
+   "sha256": "1d459b13c9650c763d6351ce21ad3b02433c80131195cf9d908de4fbc213cf27"
+  },
+  "anny data/mpfb2 (CC0 1.0)": {
+   "file": "anny/data/mpfb2/LICENSE.md",
+   "sha256": "f6089cba01cb570a24712b41ab8a586ccd3cc5ef53dc266ca50b95c288956d2c"
+  },
+  "README licence section (data/faceunits01 CC0, data/soma Apache-2.0, smplx non-commercial download)": {
+   "file": "anny-0.6.2.dist-info/METADATA, from '## License' to '## Citation'",
+   "sha256": "ff01a3e7cc32e5ec7bb9a81e7d256b9ac44082950d4fd22749959d7a6e0632a6",
+   "text": "## License\n\nThe code of Anny, Copyright (c) 2025 NAVER Corp., is licensed under the Apache License, Version 2.0 (see [LICENSE](LICENSE)).\n\n**data/mpfb2**: *Anny* relies on [MakeHuman](https://static.makehumancommunity.org/) assets adapted from [MPFB2](https://github.com/makehumancommunity/mpfb2/) that are licensed under the [CC0 1.0 Universal](src/anny/data/mpfb2/LICENSE.md) License.\n\n**data/faceunits01**: Facial actions of *Anny* rely on [Face Units asset pack](https://static.makehumancommunity.org/assets/assetpacks/index.html#functional-asset-packs) by Mika Suominen, licensed under the [CC0 1.0 Universal](src/anny/data/mpfb2/LICENSE.md) License.\n\n**data/soma**: *Anny* provide a \"soma\" topology adapted from [SOMA-X](https://github.com/NVlabs/SOMA-X) which is licenced under the [Apache 2.0](https://github.com/NVlabs/SOMA-X/blob/main/LICENSE) license.\n\n**smplx**: A \"smplx\" topology can be downloaded for non-commercial use only, allowing interoperability with [SMPL-X](https://smpl-x.is.tue.mpg.de/). See LICENSE.txt and NOTICE.txt files in http://download.europe.naverlabs.com/humans/Anny/noncommercial.zip for more information."
+  }
+ },
+ "static_scan": {
+  "words": [
+   "download",
+   "noncommercial",
+   "requests",
+   "urllib",
+   "http://",
+   "https://",
+   "hf_hub",
+   "huggingface",
+   "urlopen",
+   "socket"
+  ],
+  "files": [
+   "examples/interactive_demo.py",
+   "models/soma.py",
+   "paths.py",
+   "utils/mesh_utils.py"
+  ],
+  "hits": [
+   {
+    "file": "paths.py",
+    "line": 70,
+    "function": "def get_anny2smplx_data_path",
+    "text": "path = get_anny_cache_path() / \"noncommercial/anny2smplx.pth\""
+   },
+   {
+    "file": "paths.py",
+    "line": 72,
+    "function": "def get_anny2smplx_data_path",
+    "text": "download_noncommercial_data()"
+   },
+   {
+    "file": "paths.py",
+    "line": 83,
+    "function": "def get_anny2smpl_data_path",
+    "text": "path = get_anny_cache_path() / \"noncommercial/anny2smpl.pth\""
+   },
+   {
+    "file": "paths.py",
+    "line": 85,
+    "function": "def get_anny2smpl_data_path",
+    "text": "download_noncommercial_data()"
+   },
+   {
+    "file": "paths.py",
+    "line": 89,
+    "function": "def download_noncommercial_data",
+    "text": "def download_noncommercial_data():"
+   },
+   {
+    "file": "paths.py",
+    "line": 91,
+    "function": "def download_noncommercial_data",
+    "text": "noncommercial_data_url = ("
+   },
+   {
+    "file": "paths.py",
+    "line": 92,
+    "function": "def download_noncommercial_data",
+    "text": "\"https://download.europe.naverlabs.com/humans/Anny/noncommercial.zip\""
+   },
+   {
+    "file": "paths.py",
+    "line": 94,
+    "function": "def download_noncommercial_data",
+    "text": "dest_path = cache_dir / \"noncommercial\""
+   },
+   {
+    "file": "paths.py",
+    "line": 96,
+    "function": "def download_noncommercial_data",
+    "text": "logger.info(\"Downloading non-commercial data...\")"
+   },
+   {
+    "file": "paths.py",
+    "line": 98,
+    "function": "def download_noncommercial_data",
+    "text": "zip_path = cache_dir / \"noncommercial.zip\""
+   },
+   {
+    "file": "paths.py",
+    "line": 100,
+    "function": "def download_noncommercial_data",
+    "text": "# Download the file"
+   },
+   {
+    "file": "paths.py",
+    "line": 101,
+    "function": "def download_noncommercial_data",
+    "text": "import requests"
+   },
+   {
+    "file": "paths.py",
+    "line": 103,
+    "function": "def download_noncommercial_data",
+    "text": "response = requests.get(noncommercial_data_url)"
+   },
+   {
+    "file": "examples/interactive_demo.py",
+    "line": 478,
+    "function": "def initialize_model",
+    "text": "download_params_button = gr.DownloadButton("
+   },
+   {
+    "file": "examples/interactive_demo.py",
+    "line": 479,
+    "function": "def initialize_model",
+    "text": "label=\"Download parameters\", value=temp_params_file.name"
+   },
+   {
+    "file": "examples/interactive_demo.py",
+    "line": 505,
+    "function": "def update_show_bones",
+    "text": "outputs=[model3d, download_params_button, measurements_summary],"
+   },
+   {
+    "file": "examples/interactive_demo.py",
+    "line": 519,
+    "function": "def update_show_bone_axes",
+    "text": "outputs=[model3d, download_params_button, measurements_summary],"
+   },
+   {
+    "file": "examples/interactive_demo.py",
+    "line": 533,
+    "function": "def update_show_self_intersections",
+    "text": "outputs=[model3d, download_params_button, measurements_summary],"
+   },
+   {
+    "file": "examples/interactive_demo.py",
+    "line": 558,
+    "function": "def update_phenotype_slider",
+    "text": "outputs=[model3d, download_params_button, measurements_summary],"
+   },
+   {
+    "file": "examples/interactive_demo.py",
+    "line": 587,
+    "function": "def update_local_changes_slider",
+    "text": "outputs=[model3d, download_params_button, measurements_summary],"
+   },
+   {
+    "file": "examples/interactive_demo.py",
+    "line": 618,
+    "function": "def update_facial_actions_slider",
+    "text": "outputs=[model3d, download_params_button, measurements_summary],"
+   },
+   {
+    "file": "examples/interactive_demo.py",
+    "line": 659,
+    "function": "def reset_shape",
+    "text": "download_params_button,"
+   },
+   {
+    "file": "examples/interactive_demo.py",
+    "line": 697,
+    "function": "def update_bone_rotvec",
+    "text": "outputs=[model3d, download_params_button, measurements_summary],"
+   },
+   {
+    "file": "examples/interactive_demo.py",
+    "line": 702,
+    "function": "def update_bone_rotvec",
+    "text": "outputs=[model3d, download_params_button, measurements_summary],"
+   },
+   {
+    "file": "examples/interactive_demo.py",
+    "line": 707,
+    "function": "def update_bone_rotvec",
+    "text": "outputs=[model3d, download_params_button, measurements_summary],"
+   },
+   {
+    "file": "examples/interactive_demo.py",
+    "line": 726,
+    "function": "def reset_bone_rotvec",
+    "text": "download_params_button,"
+   },
+   {
+    "file": "models/soma.py",
+    "line": 21,
+    "function": null,
+    "text": "# nvidia/SOMA-X HuggingFace asset revision matching py-soma-x==0.1.0 (later assets are incompatible)."
+   },
+   {
+    "file": "utils/mesh_utils.py",
+    "line": 22,
+    "function": "def _split_quad",
+    "text": "https://computergraphics.stackexchange.com/questions/10180/how-to-decide-which-way-to-triangulate-a-quad"
+   }
+  ],
+  "network_calls_in_code": [
+   {
+    "file": "paths.py",
+    "line": 103,
+    "function": "def download_noncommercial_data",
+    "text": "response = requests.get(noncommercial_data_url)"
+   }
+  ]
+ }
+}

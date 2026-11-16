@@ -1,0 +1,37 @@
+{
+ "script": "scripts/openbody_catalogue_body.py",
+ "run_at": "2026-11-12T12:24:38",
+ "mdfm_commit": "b9c2b42",
+ "anny_version": "0.6.2",
+ "targets": {
+  "sex": "neutral",
+  "age_years": 40.0,
+  "height_m": 1.695,
+  "bmi": 24.0,
+  "muscle": 0.25,
+  "proportions": 0.5
+ },
+ "phenotype": {
+  "gender": 0.5,
+  "age": 0.7435897435897436,
+  "muscle": 0.25,
+  "weight": 0.6576806628145278,
+  "height": 0.3737848964519799,
+  "proportions": 0.5
+ },
+ "measured": {
+  "height_m": 1.695,
+  "mass_kg": 68.9526,
+  "bmi": 24.0
+ },
+ "segment_lengths_m": {
+  "pelvis-spine3": 0.36378,
+  "left_hip-left_knee": 0.38171,
+  "left_knee-left_ankle": 0.43333,
+  "left_shoulder-left_elbow": 0.26155,
+  "left_elbow-left_wrist": 0.23409,
+  "spine3-neck": 0.18706,
+  "neck-head": 0.10586
+ },
+ "rest_pelvis_height_m": 0.08004
+}

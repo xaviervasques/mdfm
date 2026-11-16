@@ -1,0 +1,21 @@
+# Python packages of the mdfm conda environment, installed from PyPI after torch.
+# torch comes first and separately from the CUDA 12.8 index (see env/README.md).
+numpy
+scipy
+pandas
+h5py
+scikit-learn
+statsmodels
+matplotlib
+mne
+mne-bids
+pyedflib
+pyarrow
+pyyaml
+tqdm
+pytest
+openpyxl
+einops
+ipykernel
+# the open body of the synthetic patient (env/README.md); never anny[smpl]
+anny==0.6.2

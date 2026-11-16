@@ -1,0 +1,113 @@
+# Stage-1 60M pilot on the open body: run configuration of the open port (docs/MODEL_OPEN_PORT_PLAN.md, step M4;
+# decision P1: the v1 recipe of configs/stage1_pilot.yaml kept, only the body and its data change). The body is Anny
+# (model.overrides.body open, mdfm/body/openbody.py); the train bodies are the open body store <store>/bodies_open_v1
+# (mdfm/data/open_body_store.OpenTrainStore, takes over the residual bound refused); the run-time inputs are the open
+# ones of mdfm/train/bodies.OPEN_INPUTS (the phenotype prior, mean pose and window priors of reports/open_body_priors,
+# the mount priors of reports/open_mount_priors, the layouts of reports/open_layouts, the anatomical joint-limit table
+# of reports/open_body_priors/plausibility_table.json). Every other value is the v1 pilot's; the bench of the open
+# body (reports/bench/stage1_open*) does not rewrite them (--no-write-config). Seeds: 20260928 here, as v1's first.
+name: stage1_open
+seed: 20260928
+status: M4 open configuration of 2026-11-14, the v1 pilot's values with the open body and its inputs (docs/MODEL_OPEN_PORT_PLAN.md, step M4)
+
+model:
+  size: pilot                      # mdfm.model.mfm.PILOT with body open (mdfm.model.mfm.OPEN_PILOT)
+  overrides: {body: open}
+
+mixture:
+  tokens_per_micro: 16384          # [B4.18] useful tokens per micro-step, reports/bench/stage1_pilot.md section 3
+  max_windows: 512                 # [cfg] windows per micro-step
+  rows: [128, 640, 1280]           # [B4.18] bucket row lengths, tokens, reports/bench/stage1_pilot.md section 2
+  synthetic_share: [1.0, 0.45]     # [cfg] of a micro-step's tokens; phase A synthetic only
+  synthetic_cap: 0.60              # design section 5, read cumulatively (OD9): 0.25 x 1.0 + 0.75 x 0.45 = 0.5875
+  source_cap: 0.15                 # [D§5] of all tokens of a micro-step, per real source
+  pair_share: 0.25                 # [cfg] synthetic body windows rendered twice (render pairs)
+  windows_per_person: 2            # [cfg] where the person's data allow
+  win_s: 10.0
+  min_s: 1.0
+  layouts:                         # [cfg] layout families of the factory (factory/layouts.DEFAULT_MIXTURE)
+    xsens13: 0.15
+    xsens13_insoles: 0.10
+    nonan3: 0.10
+    lower_back: 0.10
+    g1_six: 0.10
+    wrist_L: 0.10
+    wrist_acc: 0.05
+    random_sites: 0.15
+    camera1: 0.05
+    mocap3d: 0.05
+    mocap3d_plate: 0.05
+  sources: [weargait_pd, gait120, stroke_gait_vancriekinge, nonan_gaitprint, nonan_gaitprint_young, sixmwt_lifespan]
+  max_misses: 8
+
+collate:
+  segments: 4                      # [cfg] kernel segments per stream-window
+  segment: 16                      # [cfg] consecutive band-copy samples per segment
+  max_points: 32768                # [cfg] kernel points per micro-step
+  max_knots: 32768                 # [cfg] decoded knots per micro-step
+  supervision_knots: 64            # [cfg] random knots per window with a body truth
+
+schedule:
+  micro_per_step: 2                # [B4.18] micro-steps per optimizer step, reports/bench/stage1_pilot.md section 3
+  tokens_total: 1.4e+9             # [B4.18] reports/bench/stage1_pilot.md section 7; step counts A 10,681, B 32,044 (config.step_counts)
+  share_a: 0.25                    # [cfg] share of optimizer steps in phase A
+  lr: 1.0e-4                       # [cfg] 3.0e-4 before reports/bench/phaseA_diagnosis.md (C5d, fix 7); gate G-d
+  lr_min: 1.0e-5                   # cosine floor within each phase (3.0e-5 before the diagnosis)
+  warmup_steps: 2000
+  rewarmup_steps: 500              # learning-rate re-warmup at the start of phase B
+  betas: [0.9, 0.95]
+  eps: 1.0e-8
+  weight_decay: 0.05               # except norms, biases, embeddings and source offsets
+  fused: auto                      # fused AdamW if the B4.18 smoke test passes, foreach otherwise
+  clip: 1.0
+  ema_decay: 0.999
+  refine_every: 5                  # [B4.18] phase B refinement every N-th optimizer step, reports/bench/stage1_pilot.md section 6
+  refine_steps: 5
+  refine_points: 64                # points per stream per refinement step in training
+  eval_refine_steps: 20
+  eval_refine_points: 256
+  checkpoint_every: 2000           # optimizer steps, and at each phase end
+  log_every: 50
+  dev_every: 1000                  # optimizer steps (5000 before the diagnosis, fix 7)
+  max_reserved_gb: 14.5            # torch.cuda.max_memory_reserved bound
+  stop_on_alarm: true              # a training alarm (train/loop.py ALARMS) checkpoints and stops the run (fix 8)
+
+losses:
+  weights:                         # [cfg] spec section 4, (phase A, phase B)
+    imu_nll: [1.0, 1.0]
+    pose3d_nll: [1.0, 1.0]
+    pose2d_nll: [1.0, 1.0]
+    root_nll: [0.0, 1.0]
+    force_nll: [1.0, 1.0]
+    emg_nll: [0.0, 1.0]
+    sup_rot: [1.0, 1.0]
+    sup_pos: [1.0, 1.0]
+    sup_root: [1.0, 1.0]
+    sup_root_rate: [1.0, 1.0]      # [cfg] heading-frame pelvis velocity and yaw rate at the root grid (reports/bench/root_motion_diagnosis.md, fix 3)
+    sup_deriv: [0.1, 0.1]
+    sup_contact: [1.0, 1.0]
+    sup_beta: [1.0, 1.0]
+    kl_z: [1.0, 1.0]
+    kl_beta: [1.0, 1.0]
+    nuis_prior: [1.0, 1.0]
+    nuis_aux: [0.1, 0.0]
+    consistency: [0.5, 0.5]
+    plausibility: [0.1, 0.1]
+    subject: [0.1, 0.1]
+    hsic: [0.0, 0.1]
+    amortization: [0.0, 0.1]
+  plausibility_table: reports/open_body_priors/plausibility_table.json   # the anatomical table (scripts/build_open_plausibility_table.py)
+  plausibility_table_sha256: 165151dfdca8d683971975fbc9e25e617224d7696789b6de9df860a47d69a8e1
+  sup_rest: [10.0, 10.0]          # the rest-joint term of the open body (losses.sup_rest): 10 by the G-b scan of reports/bench_open/rest_scan
+  kl_anneal: 0.1                   # KL weights rise from 0 to 1 over the first 10 percent of phase A
+  free_bits: 0.02                  # nats per latent dimension and patch
+  hsic_synthetic: true
+  sigmas:                          # [cfg] fixed scales of the direct supervision (reports/bench/phaseA_diagnosis.md, C5b; root_motion_diagnosis.md, fixes 3 and 5)
+    rot: 0.1                       # rad
+    pos: 0.02                      # m, pelvis-relative joints in the heading frame
+    root_xz: 0.50                  # m, weak window-frame consistency (0.02, then 0.20 before the root-motion diagnosis); dev choice in {0.2, 0.5, 1.0}
+    root_y: 0.02                   # m, vertical root
+    vel: 0.1                       # m/s, joint velocities in each body's heading frame
+    acc: 2.0                       # m/s^2, joint accelerations in each body's heading frame
+    root_vel: 0.1                  # m/s, heading-frame pelvis velocity at the root grid; dev choice in {0.05, 0.1}
+    root_yaw_rate: 0.05            # rad/s, root yaw rate at the root grid; dev choice in {0.05, 0.1, 0.2}: 0.1 left the turning batch of scripts/check_learnability.py --batch turns at a turn slope of 0.85 (reports/bench/learnability_turns_yawrate010.md)

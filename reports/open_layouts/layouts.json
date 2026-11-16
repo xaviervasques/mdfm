@@ -1,0 +1,520 @@
+{
+ "format": "mdfm-layouts/1",
+ "moveatlas_head": "e6e3d49 2026-11-12 cmu_mocap card: 13 pairs of subject folders hold byte-identical C3D file sets (405 records, 1.20 h repeated); 11 of the 13 pairs fall in two folds of _subject_folds_open_mocap.csv, so the source's folds are not take-disjoint",
+ "device_noise": "reports/g2_renderer/device_noise.json",
+ "mount_priors": "reports/open_mount_priors/priors.json",
+ "camera_family": "generic",
+ "families": {
+  "xsens13": {
+   "name": "xsens13",
+   "streams": [
+    {
+     "modality": "imu",
+     "role": "input",
+     "fps": [
+      100.0
+     ],
+     "sites": [
+      "head",
+      "trunk",
+      "lower_back",
+      "wrist_L",
+      "wrist_R",
+      "thigh_L",
+      "thigh_R",
+      "shank_L",
+      "shank_R",
+      "ankle_L",
+      "ankle_R",
+      "foot_L",
+      "foot_R"
+     ],
+     "mask": [
+      "111111000",
+      "111111000",
+      "111111000",
+      "111111000",
+      "111111000",
+      "111111000",
+      "111111000",
+      "111111000",
+      "111111000",
+      "111111000",
+      "111111000",
+      "111111000",
+      "111111000"
+     ],
+     "acc_content": "with_gravity",
+     "unit": null,
+     "camera": null,
+     "plate": false,
+     "record": {
+      "source": "weargait_pd",
+      "modality": "imu",
+      "subject_ns": "weargait:HC101",
+      "key": "Balance"
+     }
+    }
+   ],
+   "mount": "xsens13",
+   "device": "xsens13",
+   "k_sites": null
+  },
+  "xsens13_insoles": {
+   "name": "xsens13_insoles",
+   "streams": [
+    {
+     "modality": "imu",
+     "role": "input",
+     "fps": [
+      100.0
+     ],
+     "sites": [
+      "head",
+      "trunk",
+      "lower_back",
+      "wrist_L",
+      "wrist_R",
+      "thigh_L",
+      "thigh_R",
+      "shank_L",
+      "shank_R",
+      "ankle_L",
+      "ankle_R",
+      "foot_L",
+      "foot_R"
+     ],
+     "mask": [
+      "111111000",
+      "111111000",
+      "111111000",
+      "111111000",
+      "111111000",
+      "111111000",
+      "111111000",
+      "111111000",
+      "111111000",
+      "111111000",
+      "111111000",
+      "111111000",
+      "111111000"
+     ],
+     "acc_content": "with_gravity",
+     "unit": null,
+     "camera": null,
+     "plate": false,
+     "record": {
+      "source": "weargait_pd",
+      "modality": "imu",
+      "subject_ns": "weargait:HC101",
+      "key": "Balance"
+     }
+    },
+    {
+     "modality": "force",
+     "role": "target",
+     "fps": [
+      100.0
+     ],
+     "sites": [],
+     "mask": [
+      "000000001",
+      "000000001"
+     ],
+     "acc_content": null,
+     "unit": "unknown",
+     "camera": null,
+     "plate": false,
+     "record": {
+      "source": "weargait_pd",
+      "modality": "force",
+      "subject_ns": "weargait:HC101",
+      "key": "Balance"
+     }
+    }
+   ],
+   "mount": "xsens13",
+   "device": "xsens13",
+   "k_sites": null
+  },
+  "nonan3": {
+   "name": "nonan3",
+   "streams": [
+    {
+     "modality": "imu",
+     "role": "input",
+     "fps": [
+      200.0
+     ],
+     "sites": [
+      "head",
+      "lower_back",
+      "trunk"
+     ],
+     "mask": [
+      "111000000",
+      "111000000",
+      "111000000"
+     ],
+     "acc_content": "with_gravity",
+     "unit": null,
+     "camera": null,
+     "plate": false,
+     "record": {
+      "source": "nonan_gaitprint",
+      "modality": "imu",
+      "subject_ns": "nonan_gaitprint:S009",
+      "key": "g03_d01_b01_t01"
+     }
+    }
+   ],
+   "mount": "generic",
+   "device": "generic",
+   "k_sites": null
+  },
+  "lower_back": {
+   "name": "lower_back",
+   "streams": [
+    {
+     "modality": "imu",
+     "role": "input",
+     "fps": [
+      100.0
+     ],
+     "sites": [
+      "lower_back"
+     ],
+     "mask": [
+      "111111000"
+     ],
+     "acc_content": "with_gravity",
+     "unit": null,
+     "camera": null,
+     "plate": false,
+     "record": {
+      "source": "sixmwt_lifespan",
+      "modality": "imu",
+      "subject_ns": "sixmwt_lifespan:S01",
+      "key": "6mwt"
+     }
+    }
+   ],
+   "mount": "generic",
+   "device": "generic",
+   "k_sites": null
+  },
+  "g1_six": {
+   "name": "g1_six",
+   "streams": [
+    {
+     "modality": "imu",
+     "role": "input",
+     "fps": [
+      100.0
+     ],
+     "sites": [
+      "head",
+      "lower_back",
+      "wrist_L",
+      "wrist_R",
+      "shank_L",
+      "shank_R"
+     ],
+     "mask": [
+      "111111000",
+      "111111000",
+      "111111000",
+      "111111000",
+      "111111000",
+      "111111000"
+     ],
+     "acc_content": "with_gravity",
+     "unit": null,
+     "camera": null,
+     "plate": false,
+     "record": {
+      "source": "weargait_pd",
+      "modality": "imu",
+      "subject_ns": "weargait:HC101",
+      "key": "Balance"
+     }
+    }
+   ],
+   "mount": "xsens13",
+   "device": "xsens13",
+   "k_sites": null
+  },
+  "wrist_L": {
+   "name": "wrist_L",
+   "streams": [
+    {
+     "modality": "imu",
+     "role": "input",
+     "fps": [
+      100.0
+     ],
+     "sites": [
+      "wrist_L"
+     ],
+     "mask": [
+      "111111000"
+     ],
+     "acc_content": "with_gravity",
+     "unit": null,
+     "camera": null,
+     "plate": false,
+     "record": {
+      "source": "weargait_pd",
+      "modality": "imu",
+      "subject_ns": "weargait:HC101",
+      "key": "Balance"
+     }
+    }
+   ],
+   "mount": "xsens13",
+   "device": "xsens13",
+   "k_sites": null
+  },
+  "wrist_acc": {
+   "name": "wrist_acc",
+   "streams": [
+    {
+     "modality": "imu",
+     "role": "input",
+     "fps": [
+      100.0
+     ],
+     "sites": [
+      "wrist_L"
+     ],
+     "mask": [
+      "111000000"
+     ],
+     "acc_content": "with_gravity",
+     "unit": null,
+     "camera": null,
+     "plate": false,
+     "record": {
+      "source": "capture24",
+      "modality": "imu",
+      "subject_ns": "capture24:P001",
+      "key": "h000"
+     }
+    }
+   ],
+   "mount": "generic",
+   "device": "generic",
+   "k_sites": null
+  },
+  "random_sites": {
+   "name": "random_sites",
+   "streams": [
+    {
+     "modality": "imu",
+     "role": "input",
+     "fps": [
+      100.0,
+      200.0
+     ],
+     "sites": [
+      "head",
+      "trunk",
+      "lower_back",
+      "wrist_L",
+      "wrist_R",
+      "thigh_L",
+      "thigh_R",
+      "shank_L",
+      "shank_R",
+      "ankle_L",
+      "ankle_R",
+      "foot_L",
+      "foot_R",
+      "pocket"
+     ],
+     "mask": [
+      "111111000",
+      "111111000",
+      "111111000",
+      "111111000",
+      "111111000",
+      "111111000",
+      "111111000",
+      "111111000",
+      "111111000",
+      "111111000",
+      "111111000",
+      "111111000",
+      "111111000",
+      "111111000"
+     ],
+     "acc_content": "with_gravity",
+     "unit": null,
+     "camera": null,
+     "plate": false,
+     "record": null
+    }
+   ],
+   "mount": "generic",
+   "device": "generic",
+   "k_sites": [
+    1,
+    14
+   ]
+  },
+  "camera1": {
+   "name": "camera1",
+   "streams": [
+    {
+     "modality": "pose2d",
+     "role": "input",
+     "fps": [
+      25.0,
+      30.0,
+      50.0,
+      60.0
+     ],
+     "sites": [],
+     "mask": [
+      "110",
+      "110",
+      "110",
+      "110",
+      "110",
+      "110",
+      "110",
+      "110",
+      "110",
+      "110",
+      "110",
+      "110",
+      "110",
+      "110",
+      "110"
+     ],
+     "acc_content": null,
+     "unit": null,
+     "camera": "generic",
+     "plate": false,
+     "record": {
+      "source": "li_taati",
+      "modality": "pose",
+      "subject_ns": "li_taati:communication:1",
+      "key": "communication_1"
+     }
+    }
+   ],
+   "mount": null,
+   "device": null,
+   "k_sites": null
+  },
+  "mocap3d": {
+   "name": "mocap3d",
+   "streams": [
+    {
+     "modality": "pose3d",
+     "role": "input",
+     "fps": [
+      100.0
+     ],
+     "sites": [],
+     "mask": [
+      "111",
+      "111",
+      "111",
+      "111",
+      "111",
+      "111",
+      "111",
+      "111",
+      "111",
+      "111",
+      "111",
+      "111",
+      "111",
+      "111",
+      "111"
+     ],
+     "acc_content": null,
+     "unit": null,
+     "camera": null,
+     "plate": false,
+     "record": {
+      "source": "gait120",
+      "modality": "pose",
+      "subject_ns": "gait120:S002",
+      "key": "level_walking_trial01_step01"
+     }
+    }
+   ],
+   "mount": null,
+   "device": null,
+   "k_sites": null
+  },
+  "mocap3d_plate": {
+   "name": "mocap3d_plate",
+   "streams": [
+    {
+     "modality": "pose3d",
+     "role": "input",
+     "fps": [
+      100.0
+     ],
+     "sites": [],
+     "mask": [
+      "111",
+      "111",
+      "111",
+      "111",
+      "111",
+      "111",
+      "111",
+      "111",
+      "111",
+      "111",
+      "111",
+      "111",
+      "111",
+      "111",
+      "111"
+     ],
+     "acc_content": null,
+     "unit": null,
+     "camera": null,
+     "plate": false,
+     "record": {
+      "source": "stroke_gait_vancriekinge",
+      "modality": "pose",
+      "subject_ns": "stroke_gait:able_bodied:S001",
+      "key": "gait_SUBJ1_0"
+     }
+    },
+    {
+     "modality": "force",
+     "role": "target",
+     "fps": [
+      1000.0
+     ],
+     "sites": [],
+     "mask": [
+      "000000001",
+      "000000000"
+     ],
+     "acc_content": null,
+     "unit": "N",
+     "camera": null,
+     "plate": true,
+     "record": {
+      "source": "stroke_gait_vancriekinge",
+      "modality": "force",
+      "subject_ns": "stroke_gait:able_bodied:S001",
+      "key": "gait_SUBJ1_0"
+     }
+    }
+   ],
+   "mount": null,
+   "device": null,
+   "k_sites": null
+  }
+ }
+}

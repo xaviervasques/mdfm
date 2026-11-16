@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+build/
+dist/
+
+# stores, run folders and checkpoints: outside the repository
+cache/
+runs/
+*.pt
+*.ckpt
+*.npz
+*.npy
+*.pkl
+
+# raw media never enters the tree
+*.zip
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.wmv
+
+# operating system
+.DS_Store
+._*
+Thumbs.db

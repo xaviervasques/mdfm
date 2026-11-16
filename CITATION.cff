@@ -1,0 +1,35 @@
+cff-version: 1.2.0
+message: >-
+  If you use this software, cite it using the metadata below, cite MoveAtlas
+  (the data resource it reads), and cite the source paper of every dataset you
+  use (each MoveAtlas data card carries its publications).
+type: software
+title: "MD_FM: a measured-body foundation model of abnormal human movement"
+abstract: >-
+  The code of the Movement Foundation Model program: one anonymous 3D body
+  inferred from whatever was recorded, every MoveAtlas contract read as a
+  physical measurement of that body through a differentiable sensor kernel,
+  a healthy motion prior, unit-bearing pathology descriptors, and gate
+  harnesses scored on subject-disjoint held-out splits.
+authors:
+  - family-names: Vasques
+    given-names: Xavier
+    orcid: "https://orcid.org/0009-0004-3752-5473"
+version: 0.1.0.dev0
+license: BSD-3-Clause
+repository-code: "https://github.com/xaviervasques/mdfm"
+keywords:
+  - movement disorders
+  - human movement
+  - body model
+  - inertial sensors
+  - motion capture
+  - foundation models
+references:
+  - type: software
+    title: "MoveAtlas: the open atlas of movement data, human and animal"
+    authors:
+      - family-names: Vasques
+        given-names: Xavier
+    repository-code: "https://github.com/xaviervasques/moveatlas"
+    license: BSD-3-Clause

@@ -1,0 +1,58 @@
+# Task vocabulary of the stage-1 pilot (docs/MFM_MODEL_CODE_SPEC_2026-09-28.md, sections 2.2 and 4).
+#
+# Status: DRAFT for the owner (plan task B4.5). The task id conditions the motion prior of the
+# pilot (with sex and shape) and defines the HSIC strata of the loss; it never enters the encoder.
+# mdfm.data.windows reads this file and records its SHA-256 (windows.task_vocabulary()["sha256"]);
+# the window store, the body store and every checkpoint carry that hash, so an edit is visible.
+#
+# Ids: the position in `tasks` (walk = 0, ..., unknown = 11). Append new names at the end only.
+# Rules: per source, tried in order on the recording key (the manifest key of the record; gait120
+# pose steps and EMG trials by their trial name, see mdfm.data.sources.recording_key) with
+# re.search, case-insensitive; the first match gives the task, no match gives `default`.
+# The keys each rule meets were counted on the index by scripts/probe_stage1_sources.py
+# (reports/stage1_sources/tasks.csv), never typed here.
+version: 1
+status: DRAFT
+tasks: [walk, turn, stand, sit_stand, stairs, slope, transfer, free_living, adl, sport_dance, other, unknown]
+default: unknown
+
+sources:
+  weargait_pd:
+    # Balance: EO/EC stance conditions (reports/weargait_frames/summary.md)
+    - {task: stand, match: '^Balance$'}
+    # TUG: sit to stand, walk 3 m, turn, walk back, sit (phases SitToStand, Walk, Turn, TurnToSit)
+    - {task: transfer, match: '^TUG$'}
+    # the walking protocol built around a turn on the walkway; every walking trial also holds turns
+    - {task: turn, match: '^SelfPace_matTURN$'}
+    # SelfPace, HurriedPace (with and without the mat), TandemGait, SelfPace_doorpat, FreeWalk
+    - {task: walk, match: '^(SelfPace|HurriedPace)(_mat|_doorpat)?$'}
+    - {task: walk, match: '^TandemGait$'}
+    - {task: walk, match: '^FreeWalk$'}
+  gait120:
+    - {task: walk, match: '^level_walking'}
+    - {task: stairs, match: '^stair_(ascent|descent)'}
+    - {task: slope, match: '^slope_(ascent|descent)'}
+    - {task: sit_stand, match: '^(sit_to_stand|stand_to_sit)'}
+  stroke_gait_vancriekinge:
+    # overground walking trials of the Plug-in Gait C3D files
+    - {task: walk, match: '^gait_'}
+  nonan_gaitprint:
+    # GaitPrint: overground walking trials, keys g<group>_d<day>_b<block>_t<trial>
+    - {task: walk, match: '^g\d+_d\d+_b\d+_t\d+$'}
+  nonan_gaitprint_young:
+    - {task: walk, match: '^g\d+_d\d+_b\d+_t\d+$'}
+  sixmwt_lifespan:
+    - {task: walk, match: '^6mwt$'}
+  amass:
+    # DRAFT keyword rules on the take file name (last path component, without _poses.npz or
+    # _stageii.npz), for the body store (B4.4); their coverage on the non-lockbox RELEASE takes is
+    # in reports/stage1_sources/tasks.csv. CMU takes are numbered and stay unknown.
+    - {task: stairs, match: 'stair|upstairs|downstairs'}
+    - {task: slope, match: 'slope|ramp|incline'}
+    - {task: sit_stand, match: 'sit_?down|stand_?up|sit_?to_?stand|stand_?to_?sit|(^|[/_ ])sit|chair'}
+    - {task: transfer, match: '(^|[/_ ])(lie|lying|lay|get_?up|crawl)'}
+    - {task: sport_dance, match: 'danc|ballet|salsa|waltz|box|punch|kick|jump|hop|throw|catch|golf|tennis|basket|soccer|football|martial|karate|kungfu|yoga|acrobat|cartwheel|handball|run|jog|sprint|skip'}
+    - {task: adl, match: 'drink|eat|pick|lift|carry|wash|comb|cook|phone|brush|clean|sweep|wipe|pour|open|close|push|pull|reach|grasp|bend|kneel'}
+    - {task: turn, match: 'turn|pivot'}
+    - {task: walk, match: 'walk|step|stroll|march|gait|treadmill'}
+    - {task: stand, match: 'stand|idle|static|still|balance|t_?pose|a_?pose'}

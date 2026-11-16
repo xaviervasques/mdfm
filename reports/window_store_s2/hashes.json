@@ -1,0 +1,179 @@
+{
+ "files_sha256": {
+  "clinical_gait_multipatho": {
+   "imu/valid.u1": "e95ac0121fe290599858557e5292e880097bc4e19197d2d986596a074c8ce7e7",
+   "imu/values.f16": "f996eabaaf547cb25d06bc7595ce5a076dc248dc8450cf82c76708c7377eb48f",
+   "records.csv": "7e5cf22406c476a2027267e3ad6b1cd28717d2d3e4cc2cd545bf4c865ac26cce"
+  },
+  "imu_inthewild_iprognosis": {
+   "imu/valid.u1": "825bbf205cef04eb16483b327c8e3ba8359589a1f04fab7127019f2b01bbb7ae",
+   "imu/values.f16": "63bc5f9f1527dbe541ed3f5396a433947a07cb62e41960b5fc34bcacce148690",
+   "records.csv": "fc2c8549b8f36f5e70f4eb65a7b24b03b0afb4ff01fcb48f0ddc971f2c0ec1da"
+  },
+  "pads": {
+   "imu/valid.u1": "93b8b3d7a77aa2ae2aff0e175728786336600359984f910851dde758bbe23d8b",
+   "imu/values.f16": "456db473a87708ada8d26e21a52f5a2e5afa27a79278975d161a0a5e41421c54",
+   "records.csv": "0c2020a94a8a6f2a4b36a18100f300d32287bbcd74fe5164bc7917041745bfab"
+  },
+  "stroke_gait_vancriekinge": {
+   "emg/valid.u1": "dd7dc5d885cc981bf4ed87964f0b48daf06783b2dd74a6c4568c56c5b8548951",
+   "emg/values.f16": "2528cabc871e44b2b4c1f631c0f030936344f6ec4abf142691e608be6b86b7e5",
+   "force/valid.u1": "e670a23925027d53f5687cbeab038f0d78a7f2378d344bd92d0c0d94742e294d",
+   "force/values.f16": "46cf2a139d4a08c3338c35041b5d866fc1525c0476dc60e35cb16992b1ba32b9",
+   "pose3d/root.f32": "a3ee3e8f670749d2015074c5d79b0652846b43705742cd286eda5367070f36ad",
+   "pose3d/root_valid.u1": "e06abd98d56e69dbfb628636cc9d7960c71171e7e08da943e764fdeaf3174371",
+   "pose3d/valid.u1": "0b91d4f88462ddb196330450a61b7a5ced2e70c827b66a4a9b1e969d9cd165da",
+   "pose3d/values.f16": "09a1de23f64524aa9a2949ddc953db4597dbc33dafb5e67a0a2ff3bc881fa692",
+   "records.csv": "5769eaae1436d43e8802c33468bb03d5a59b964f91f5fbd71cf4bdea4e16b0da"
+  },
+  "weargait_pd": {
+   "force/valid.u1": "ac42e778366b5c1dd3703a0594c994b99e17d46423aa19a37e52dfeb854d1d42",
+   "force/values.f16": "5f486725f12ec4871cf3deb7b2e851bb6d5a2321875f1224b7e87cd87e554d14",
+   "imu/valid.u1": "03a0e0726934b6ff7738cb9a4bf90f68e22bbc42274b0e119a41f35dbbd6caee",
+   "imu/values.f16": "0b66d57babe3799c96d12de92157f3decdf8c552c44b30f3d1bbf2bf8e9771fa",
+   "records.csv": "ecdfc2337f59c8a634aec682ae5f4958b6281b34a9f5f03de9e897c9875d9b49"
+  }
+ },
+ "marker": {
+  "format": "mdfm-window-store-tier/1",
+  "tier": "RELEASE"
+ },
+ "person_sha256": {
+  "clinical_gait_multipatho": {
+   "all": "4ee92348ac9efaecad5018ed395939125988b52018976e4afa9d5a72942a24b4",
+   "train": "2dea491a899cbf44d8220b991deab24669ca03dd845872456e2b158437aec64f",
+   "val": "5b20d73bdf4992efb8c7111a98db35b1dc3a685986be45a22d362f73c0506975"
+  },
+  "imu_inthewild_iprognosis": {
+   "all": "bbd683f9e676a57c033c034f1207a625021cbc729967c5de7cf0995527bda2e5",
+   "train": "7b957690c9b56177827db3f861b784c48baa22bb1171c987f97edecc9d2cd6ff",
+   "val": "3ed6c9de60b117ed2b56f714f31a0d2543cb1a76fd6ba36f17023c8c94a417a8"
+  },
+  "pads": {
+   "all": "76af3e4e22ab635f59d1530331fff905e568f8df2d173902cc1e544ea3cfce2b",
+   "train": "e6767f5d54e0cbd3fd45f69e303313cf8bbc547b64dca36eb26f2682a3de5cf7",
+   "val": "c52a9c5b5a2a3e47cadfe2da8fd2fed81eefe058aa8423881740c2a6ce2fbd28"
+  },
+  "stroke_gait_vancriekinge": {
+   "all": "ab04ebc93bfeb7440750e3504811050efa01ef54cd431d8cc2608375e0247058",
+   "dev": "0604a51f5d82c40746b1931ae0ff4403180175e6aac4cd4a90b153763666a70c",
+   "train": "43ccf5f8861258044681e79e2056e52ec05e8f4847a448ed57f907a1ab61a281"
+  },
+  "weargait_pd": {
+   "all": "d2ecb5f13f68a0fd44b383b47afc73d8226ebc9ce919d5b5f9fcd4726355545f",
+   "dev": "13766aa2ba11931cb0c57bd355e68781c38e43a89e69d6cb0a216ae1c68056f5",
+   "train": "2762fa0b8d8e0923f178d62e0bf08285b6006f46f35c1fc56e30f733806c4d95"
+  }
+ },
+ "store_json": {
+  "band": {
+   "emg_band_hz": [
+    20.0,
+    450.0
+   ],
+   "emg_floor_min_mv": 1e-06,
+   "emg_floor_pct": 5.0,
+   "emg_rms_s": 0.02,
+   "emg_zero_run": "rms_n samples of exact 0 in a raw channel are a gap",
+   "filter_min_fps": 80.0,
+   "lowpass_hz": 40.0,
+   "order": 4,
+   "target_hz": 100.0,
+   "zero_phase": "scipy.signal.sosfiltfilt"
+  },
+  "format": "mdfm-window-store/1",
+  "names_sha256": "986f40555bdb8281e9690bc7d44c94c6c6ad4a54cccee6f2bf780c1ba0cc725e",
+  "sources": {
+   "clinical_gait_multipatho": {
+    "files_sha256": {
+     "imu/valid.u1": "e95ac0121fe290599858557e5292e880097bc4e19197d2d986596a074c8ce7e7",
+     "imu/values.f16": "f996eabaaf547cb25d06bc7595ce5a076dc248dc8450cf82c76708c7377eb48f",
+     "records.csv": "7e5cf22406c476a2027267e3ad6b1cd28717d2d3e4cc2cd545bf4c865ac26cce"
+    },
+    "names_sha256": "986f40555bdb8281e9690bc7d44c94c6c6ad4a54cccee6f2bf780c1ba0cc725e",
+    "person_sha256": {
+     "all": "4ee92348ac9efaecad5018ed395939125988b52018976e4afa9d5a72942a24b4",
+     "train": "2dea491a899cbf44d8220b991deab24669ca03dd845872456e2b158437aec64f",
+     "val": "5b20d73bdf4992efb8c7111a98db35b1dc3a685986be45a22d362f73c0506975"
+    },
+    "recordings": 1085,
+    "records": 1085,
+    "task_vocabulary_sha256": "d638ab21953f587f5afb9020b9b8aea2855c52253302bc70d22f3b1d7c5b9d91"
+   },
+   "imu_inthewild_iprognosis": {
+    "files_sha256": {
+     "imu/valid.u1": "825bbf205cef04eb16483b327c8e3ba8359589a1f04fab7127019f2b01bbb7ae",
+     "imu/values.f16": "63bc5f9f1527dbe541ed3f5396a433947a07cb62e41960b5fc34bcacce148690",
+     "records.csv": "fc2c8549b8f36f5e70f4eb65a7b24b03b0afb4ff01fcb48f0ddc971f2c0ec1da"
+    },
+    "names_sha256": "986f40555bdb8281e9690bc7d44c94c6c6ad4a54cccee6f2bf780c1ba0cc725e",
+    "person_sha256": {
+     "all": "bbd683f9e676a57c033c034f1207a625021cbc729967c5de7cf0995527bda2e5",
+     "train": "7b957690c9b56177827db3f861b784c48baa22bb1171c987f97edecc9d2cd6ff",
+     "val": "3ed6c9de60b117ed2b56f714f31a0d2543cb1a76fd6ba36f17023c8c94a417a8"
+    },
+    "recordings": 837,
+    "records": 837,
+    "task_vocabulary_sha256": "d638ab21953f587f5afb9020b9b8aea2855c52253302bc70d22f3b1d7c5b9d91"
+   },
+   "pads": {
+    "files_sha256": {
+     "imu/valid.u1": "93b8b3d7a77aa2ae2aff0e175728786336600359984f910851dde758bbe23d8b",
+     "imu/values.f16": "456db473a87708ada8d26e21a52f5a2e5afa27a79278975d161a0a5e41421c54",
+     "records.csv": "0c2020a94a8a6f2a4b36a18100f300d32287bbcd74fe5164bc7917041745bfab"
+    },
+    "names_sha256": "986f40555bdb8281e9690bc7d44c94c6c6ad4a54cccee6f2bf780c1ba0cc725e",
+    "person_sha256": {
+     "all": "76af3e4e22ab635f59d1530331fff905e568f8df2d173902cc1e544ea3cfce2b",
+     "train": "e6767f5d54e0cbd3fd45f69e303313cf8bbc547b64dca36eb26f2682a3de5cf7",
+     "val": "c52a9c5b5a2a3e47cadfe2da8fd2fed81eefe058aa8423881740c2a6ce2fbd28"
+    },
+    "recordings": 8250,
+    "records": 8250,
+    "task_vocabulary_sha256": "d638ab21953f587f5afb9020b9b8aea2855c52253302bc70d22f3b1d7c5b9d91"
+   },
+   "stroke_gait_vancriekinge": {
+    "files_sha256": {
+     "emg/valid.u1": "dd7dc5d885cc981bf4ed87964f0b48daf06783b2dd74a6c4568c56c5b8548951",
+     "emg/values.f16": "2528cabc871e44b2b4c1f631c0f030936344f6ec4abf142691e608be6b86b7e5",
+     "force/valid.u1": "e670a23925027d53f5687cbeab038f0d78a7f2378d344bd92d0c0d94742e294d",
+     "force/values.f16": "46cf2a139d4a08c3338c35041b5d866fc1525c0476dc60e35cb16992b1ba32b9",
+     "pose3d/root.f32": "a3ee3e8f670749d2015074c5d79b0652846b43705742cd286eda5367070f36ad",
+     "pose3d/root_valid.u1": "e06abd98d56e69dbfb628636cc9d7960c71171e7e08da943e764fdeaf3174371",
+     "pose3d/valid.u1": "0b91d4f88462ddb196330450a61b7a5ced2e70c827b66a4a9b1e969d9cd165da",
+     "pose3d/values.f16": "09a1de23f64524aa9a2949ddc953db4597dbc33dafb5e67a0a2ff3bc881fa692",
+     "records.csv": "5769eaae1436d43e8802c33468bb03d5a59b964f91f5fbd71cf4bdea4e16b0da"
+    },
+    "names_sha256": "986f40555bdb8281e9690bc7d44c94c6c6ad4a54cccee6f2bf780c1ba0cc725e",
+    "person_sha256": {
+     "all": "ab04ebc93bfeb7440750e3504811050efa01ef54cd431d8cc2608375e0247058",
+     "dev": "0604a51f5d82c40746b1931ae0ff4403180175e6aac4cd4a90b153763666a70c",
+     "train": "43ccf5f8861258044681e79e2056e52ec05e8f4847a448ed57f907a1ab61a281"
+    },
+    "recordings": 121,
+    "records": 313,
+    "task_vocabulary_sha256": "d638ab21953f587f5afb9020b9b8aea2855c52253302bc70d22f3b1d7c5b9d91"
+   },
+   "weargait_pd": {
+    "files_sha256": {
+     "force/valid.u1": "ac42e778366b5c1dd3703a0594c994b99e17d46423aa19a37e52dfeb854d1d42",
+     "force/values.f16": "5f486725f12ec4871cf3deb7b2e851bb6d5a2321875f1224b7e87cd87e554d14",
+     "imu/valid.u1": "03a0e0726934b6ff7738cb9a4bf90f68e22bbc42274b0e119a41f35dbbd6caee",
+     "imu/values.f16": "0b66d57babe3799c96d12de92157f3decdf8c552c44b30f3d1bbf2bf8e9771fa",
+     "records.csv": "ecdfc2337f59c8a634aec682ae5f4958b6281b34a9f5f03de9e897c9875d9b49"
+    },
+    "names_sha256": "986f40555bdb8281e9690bc7d44c94c6c6ad4a54cccee6f2bf780c1ba0cc725e",
+    "person_sha256": {
+     "all": "d2ecb5f13f68a0fd44b383b47afc73d8226ebc9ce919d5b5f9fcd4726355545f",
+     "dev": "13766aa2ba11931cb0c57bd355e68781c38e43a89e69d6cb0a216ae1c68056f5",
+     "train": "2762fa0b8d8e0923f178d62e0bf08285b6006f46f35c1fc56e30f733806c4d95"
+    },
+    "recordings": 590,
+    "records": 1144,
+    "task_vocabulary_sha256": "d638ab21953f587f5afb9020b9b8aea2855c52253302bc70d22f3b1d7c5b9d91"
+   }
+  },
+  "task_vocabulary_sha256": "d638ab21953f587f5afb9020b9b8aea2855c52253302bc70d22f3b1d7c5b9d91",
+  "tier": "RELEASE"
+ }
+}

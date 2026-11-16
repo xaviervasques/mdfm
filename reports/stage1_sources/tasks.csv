@@ -1,0 +1,33 @@
+source,task,key_pattern,recordings
+weargait_pd,stand,Balance,68
+weargait_pd,transfer,TUG,68
+weargait_pd,turn,SelfPace_matTURN,68
+weargait_pd,walk,FreeWalk,16
+weargait_pd,walk,HurriedPace,68
+weargait_pd,walk,HurriedPace_mat,68
+weargait_pd,walk,SelfPace,68
+weargait_pd,walk,SelfPace_doorpat,9
+weargait_pd,walk,SelfPace_mat,68
+weargait_pd,walk,TandemGait,68
+gait120,sit_stand,sit_to_stand_trial#,449
+gait120,sit_stand,stand_to_sit_trial#,455
+gait120,slope,slope_ascent_trial#,480
+gait120,slope,slope_descent_trial#,480
+gait120,stairs,stair_ascent_trial#,480
+gait120,stairs,stair_descent_trial#,480
+gait120,walk,level_walking_trial#,480
+stroke_gait_vancriekinge,walk,gait_SUBJ#,1
+stroke_gait_vancriekinge,walk,gait_SUBJ#_#,588
+nonan_gaitprint,walk,g#_d#_b#_t#,719
+nonan_gaitprint_young,walk,g#_d#_b#_t#,620
+sixmwt_lifespan,walk,#mwt,60
+"amass (non-lockbox RELEASE takes, index only)",unknown,,8834
+"amass (non-lockbox RELEASE takes, index only)",walk,,1867
+"amass (non-lockbox RELEASE takes, index only)",sport_dance,,1808
+"amass (non-lockbox RELEASE takes, index only)",adl,,1570
+"amass (non-lockbox RELEASE takes, index only)",turn,,369
+"amass (non-lockbox RELEASE takes, index only)",sit_stand,,259
+"amass (non-lockbox RELEASE takes, index only)",stairs,,195
+"amass (non-lockbox RELEASE takes, index only)",slope,,42
+"amass (non-lockbox RELEASE takes, index only)",transfer,,38
+"amass (non-lockbox RELEASE takes, index only)",stand,,31

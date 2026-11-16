@@ -1,0 +1,32 @@
+# Live tests: their outcome follows files that queue jobs, readings or the MoveAtlas tree write or move (reports/
+# outputs of jobs, <store>/video, cache/runs/, reports/gpu_queue/job_log.csv, a count over a report), not the code
+# alone. tests/conftest.py marks every test matched here with the pytest marker "live"; scripts/run_suite.py runs
+# them in a second pass (-m live) that never decides the green marker, so none of them can hold the GPU queue.
+#
+# Format: one entry per line, a node-id pattern (tree-relative path, '::', test name; fnmatch wildcards allowed),
+# then whitespace and the reason. Write the id without parameters: an entry matches every parametrization of the
+# test. tests/test_live_marker.py checks that every entry names a test that exists. Task QROB, 2026-10-12; the
+# runner suites each one turned red are counted in reports/weekend_2026-10-01/tasks/QROB.md.
+
+tests/test_f2_lever4.py::test_the_current_tree_reads_not_evaluated_and_writes_nothing  runs scripts/f2_lever4.py on the live tree: its outcome follows reports/bench/f2_lever4/results.json and cache/runs/pilot_f2l4/log.jsonl
+tests/test_f2_lever4.py::test_section_7_prints_the_numbers_of_the_files  the margins it recomputes read reading outputs (reports/bench/seed_difference/results.json appeared with the SEED reading and turned it red)
+tests/test_f2_lever4.py::test_the_recorded_producer_is_the_one_amendment_2_names  reads the _provenance_events.json the PD jobs write under reports/gates/g3/dev_pd_* and the reading reports/bench/f2_lever4/results.json (added by task G3W on 2026-10-12)
+tests/test_regen_addendum_numbers.py::test_real_run_maps_every_number  main() on the live reports: missing_inputs and the revision spans follow which reports exist
+tests/test_regen_addendum_numbers.py::test_real_run_known_rows  pins the class and report value of rows computed from the live reports
+tests/test_regen_addendum_numbers.py::test_real_run_pins_the_classes  pins the counts per class over the live reports
+tests/test_regen_addendum_numbers.py::test_real_run_derived_rows_and_draft_counts  pins rows derived from the live reports
+tests/test_regen_addendum_numbers.py::test_real_run_citation_check_on_the_registry_snapshot  pins counts over reports/probe_registry, which a probe rerun rewrites (red after the rerun against MoveAtlas ecf7bbf)
+tests/test_regen_addendum_numbers.py::test_real_run_raw_sizes_cite_the_moveatlas_head  the MoveAtlas HEAD and the sizes of its raw folders
+tests/test_video_generate.py::test_the_exam_jobs_dry_run_on_the_real_inputs  dry run on <store>/video (generated clips, driver, approved candidates): the job's own clip turns it red
+tests/test_video_generate.py::test_the_low_ram_exam_jobs_dry_run_on_the_real_inputs  the same dry run for the low-RAM jobs
+tests/test_video_generate.py::test_real_driver_clip_reads_and_plans  pins the frame count and size of a rendered driver clip under <store>/video/driver
+tests/test_video_identity_generate.py::test_the_tree_approvals_file  the owner's approvals file against the candidate folders the identity jobs write under <store>/video/identity
+tests/test_video_identity_generate.py::test_the_approved_v4_candidates_still_check  re-checks the approved candidates the identity jobs wrote under <store>/video/identity
+tests/test_video_exam_queue.py::test_the_script_rebuilds_the_job_files  rebuilds the VEX job files from the exam_v1 driver clips under <store>/video/driver/exam_v1 (the SHA-256 of their truth files) and the approvals
+tests/test_e1_configs.py::test_every_job_file_of_the_folder  reads reports/gpu_queue/job_log.csv, the live job folder and whether the jobs' output folders exist
+tests/test_seed_difference.py::test_reruns_are_the_queued_jobs_with_seed_1s_arguments  reads the live job folder and the argv rows of reports/gpu_queue/job_log.csv
+tests/test_provenance.py::test_hashes_are_read_from_the_reports  compares the MoveAtlas HEAD with reports/moveatlas_state/state.json: a MoveAtlas commit turns it red until the state is stamped again
+tests/test_video_exam_vid2.py::test_live_the_jobs_built_on_the_real_inputs  reads the VID2 window drivers under <store>/video/driver/exam_v1w_832x480, the exam_v1 drivers' truth files, approved.json and the exam records used for the costs
+tests/test_video_exam_vid2.py::test_live_the_build_stops_on_a_tremor_job_under_the_cell_rule  reads the VID2 window drivers and the exam_v1 drivers' truth files under <store>/video/driver
+tests/test_video_exam_vid2.py::test_live_main_writes_only_where_it_is_told  reads the VID2 window drivers, approved.json and the exam records under reports/video_exam
+tests/test_f2_lever5a_note.py::test_the_note_on_the_live_tree  runs scripts/f2_lever5a_note.py on the live reports: its run list, rerun checks and readings follow every report of v1_B at the D1 settings under reports/ (a new rerun of v1_B is an unlisted run) and reports/bench/f2_lever5a/results.json (added by task L5AN on 2026-10-20)

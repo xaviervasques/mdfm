@@ -1,0 +1,154 @@
+# Muscle action table of the EMG decoder (mdfm/kernels/emg.py; spec docs/MFM_MODEL_CODE_SPEC_2026-09-28.md,
+# section 2.3, task B4.9).
+#
+# One row per muscle of the MoveAtlas muscle vocabulary (configs/canonical_emg.yaml, version 2, read-only),
+# in its order (tests/test_emg.py checks the list against the contract). actions: the joint actions the
+# muscle produces, as "joint action" in anatomical terms. The decoder models four moment channels per leg
+# (mdfm/kernels/dynamics.py MOMENT_CHANNELS): hip flexion or extension, knee flexion or extension, ankle
+# dorsiflexion or plantarflexion, hip abduction or adduction. Every other action is recorded here and not
+# modelled in the pilot; a muscle without a modelled action is masked by the EMG likelihood.
+# sources: keys of the references block, at least one per row.
+version: 1
+vocabulary: canonical_emg.yaml version 2 (2026-08-28)
+references:
+  delp1990: "Delp SL, Loan JP, Hoy MG, Zajac FE, Topp EL, Rosen JM. An interactive graphics-based model of the lower extremity to study orthopaedic surgical procedures. IEEE Trans Biomed Eng 1990;37(8):757-767 (muscle paths and moment arms at hip, knee and ankle)."
+  neumann2017_hip: "Neumann DA. Kinesiology of the Musculoskeletal System: Foundations for Rehabilitation, 3rd ed. St. Louis: Elsevier; 2017, chapter Hip."
+  neumann2017_knee: "Neumann DA. Kinesiology of the Musculoskeletal System, 3rd ed. Elsevier; 2017, chapter Knee."
+  neumann2017_ankle: "Neumann DA. Kinesiology of the Musculoskeletal System, 3rd ed. Elsevier; 2017, chapter Ankle and Foot."
+  neumann2017_axial: "Neumann DA. Kinesiology of the Musculoskeletal System, 3rd ed. Elsevier; 2017, chapter Axial Skeleton: Muscle and Joint Interactions."
+  neumann2017_shoulder: "Neumann DA. Kinesiology of the Musculoskeletal System, 3rd ed. Elsevier; 2017, chapter Shoulder Complex."
+  neumann2017_elbow: "Neumann DA. Kinesiology of the Musculoskeletal System, 3rd ed. Elsevier; 2017, chapter Elbow and Forearm."
+  neumann2017_wrist: "Neumann DA. Kinesiology of the Musculoskeletal System, 3rd ed. Elsevier; 2017, chapter Wrist."
+  neumann2017_hand: "Neumann DA. Kinesiology of the Musculoskeletal System, 3rd ed. Elsevier; 2017, chapter Hand."
+  neumann2017_mastication: "Neumann DA. Kinesiology of the Musculoskeletal System, 3rd ed. Elsevier; 2017, chapter Kinesiology of Mastication and Ventilation."
+  standring2016: "Standring S (ed.). Gray's Anatomy: The Anatomical Basis of Clinical Practice, 41st ed. Elsevier; 2016 (muscles of the face)."
+  hermens2000: "Hermens HJ, Freriks B, Disselhorst-Klug C, Rau G. Development of recommendations for SEMG sensors and sensor placement procedures. J Electromyogr Kinesiol 2000;10(5):361-374 (SENIAM electrode sites)."
+  canonical_emg: "MoveAtlas configs/canonical_emg.yaml, version 2: the vocabulary and its definitions of gastrocnemius and hamstrings (head not specified by the source), forearm_array (an array slot, not a muscle) and unknown."
+muscles:
+  - muscle: tibialis_anterior
+    actions: [ankle dorsiflexion, subtalar inversion]
+    sources: [delp1990, neumann2017_ankle]
+  - muscle: gastrocnemius
+    actions: [knee flexion, ankle plantarflexion]
+    sources: [delp1990, neumann2017_ankle, canonical_emg]
+    note: head not specified by the source; both heads cross knee and ankle
+  - muscle: gastrocnemius_lateralis
+    actions: [knee flexion, ankle plantarflexion]
+    sources: [delp1990, neumann2017_ankle]
+  - muscle: gastrocnemius_medialis
+    actions: [knee flexion, ankle plantarflexion]
+    sources: [delp1990, neumann2017_ankle]
+  - muscle: soleus
+    actions: [ankle plantarflexion]
+    sources: [delp1990, neumann2017_ankle]
+  - muscle: soleus_medialis
+    actions: [ankle plantarflexion]
+    sources: [delp1990, neumann2017_ankle]
+    note: medial part of soleus as named by gait120; the action of the whole muscle
+  - muscle: soleus_lateralis
+    actions: [ankle plantarflexion]
+    sources: [delp1990, neumann2017_ankle]
+    note: lateral part of soleus as named by gait120; the action of the whole muscle
+  - muscle: peroneus_longus
+    actions: [ankle plantarflexion, subtalar eversion]
+    sources: [delp1990, neumann2017_ankle]
+  - muscle: peroneus_brevis
+    actions: [ankle plantarflexion, subtalar eversion]
+    sources: [delp1990, neumann2017_ankle]
+  - muscle: rectus_femoris
+    actions: [hip flexion, knee extension]
+    sources: [delp1990, neumann2017_hip, neumann2017_knee]
+  - muscle: vastus_lateralis
+    actions: [knee extension]
+    sources: [delp1990, neumann2017_knee]
+  - muscle: vastus_medialis
+    actions: [knee extension]
+    sources: [delp1990, neumann2017_knee]
+  - muscle: biceps_femoris
+    actions: [hip extension, knee flexion]
+    sources: [delp1990, neumann2017_hip, neumann2017_knee, hermens2000]
+    note: the long head crosses hip and knee, the short head the knee only; the SENIAM electrode site lies over the long head
+  - muscle: semitendinosus
+    actions: [hip extension, knee flexion]
+    sources: [delp1990, neumann2017_hip, neumann2017_knee]
+  - muscle: hamstrings
+    actions: [hip extension, knee flexion]
+    sources: [delp1990, neumann2017_hip, canonical_emg]
+    note: head not specified by the source
+  - muscle: gluteus_medius
+    actions: [hip abduction]
+    sources: [delp1990, neumann2017_hip]
+  - muscle: erector_spinae
+    actions: [trunk extension]
+    sources: [neumann2017_axial]
+    note: lumbar and thoracic spine; no trunk moment in the pilot, masked
+  - muscle: rectus_abdominis
+    actions: [trunk flexion]
+    sources: [neumann2017_axial]
+  - muscle: deltoid_anterior
+    actions: [shoulder flexion, shoulder internal_rotation]
+    sources: [neumann2017_shoulder]
+  - muscle: deltoid_medius
+    actions: [shoulder abduction]
+    sources: [neumann2017_shoulder]
+  - muscle: deltoid_posterior
+    actions: [shoulder extension, shoulder external_rotation]
+    sources: [neumann2017_shoulder]
+  - muscle: biceps_brachii
+    actions: [elbow flexion, forearm supination, shoulder flexion]
+    sources: [neumann2017_elbow]
+  - muscle: triceps_brachii
+    actions: [elbow extension, shoulder extension]
+    sources: [neumann2017_elbow]
+    note: shoulder extension by the long head
+  - muscle: flexor_carpi_radialis
+    actions: [wrist flexion, wrist radial_deviation]
+    sources: [neumann2017_wrist]
+  - muscle: extensor_carpi_radialis
+    actions: [wrist extension, wrist radial_deviation]
+    sources: [neumann2017_wrist]
+  - muscle: extensor_carpi_ulnaris
+    actions: [wrist extension, wrist ulnar_deviation]
+    sources: [neumann2017_wrist]
+  - muscle: flexor_digitorum
+    actions: [finger flexion, wrist flexion]
+    sources: [neumann2017_hand, neumann2017_wrist]
+  - muscle: extensor_digitorum
+    actions: [finger extension, wrist extension]
+    sources: [neumann2017_hand, neumann2017_wrist]
+  - muscle: first_dorsal_interosseous
+    actions: [index_mcp abduction, index_mcp flexion]
+    sources: [neumann2017_hand]
+  - muscle: abductor_pollicis_brevis
+    actions: [thumb_cmc abduction]
+    sources: [neumann2017_hand]
+  - muscle: sternocleidomastoideus
+    actions: [neck flexion, neck lateral_flexion, neck contralateral_rotation]
+    sources: [neumann2017_axial]
+  - muscle: trapezius_superior
+    actions: [scapula elevation, neck extension]
+    sources: [neumann2017_shoulder, neumann2017_axial]
+  - muscle: splenius_capitis
+    actions: [neck extension, neck ipsilateral_rotation]
+    sources: [neumann2017_axial]
+  - muscle: levator_scapulae
+    actions: [scapula elevation, scapula downward_rotation]
+    sources: [neumann2017_shoulder]
+  - muscle: masseter
+    actions: [mandible elevation]
+    sources: [neumann2017_mastication]
+  - muscle: orbicularis_oculi
+    actions: [eyelid closure]
+    sources: [standring2016]
+  - muscle: submentalis
+    actions: [mandible depression]
+    sources: [neumann2017_mastication, canonical_emg]
+    note: the polysomnography chin channel over the suprahyoid group; read for tone (sleep atonia)
+  - muscle: forearm_array
+    actions: []
+    sources: [canonical_emg]
+    note: an electrode slot of a circumferential array, not an anatomical muscle
+  - muscle: unknown
+    actions: []
+    sources: [canonical_emg]
+    note: identity not resolved by the source

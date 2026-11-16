@@ -1,0 +1,31 @@
+{
+ "note": "mean root translation (m) of windows of the open body store in the window frame, drawn by person; transl_centre at the centre knot L // 2 (as reports/body_store/window_priors.json)",
+ "transl_mean": [
+  0.015380999853977126,
+  0.7878240613264226,
+  0.008324709289548694
+ ],
+ "transl_sd": [
+  0.3409781555401116,
+  0.1512255943748532,
+  1.0290598259478825
+ ],
+ "transl_centre_mean": [
+  0.0,
+  0.7888037536531222,
+  -0.015537949984577255
+ ],
+ "transl_centre_sd": [
+  0.0,
+  0.1323917178449203,
+  0.005553902726129599
+ ],
+ "n_windows": 20000,
+ "n_knots": 10344191,
+ "n_persons_drawn": 397,
+ "seed": 20261113,
+ "win_s": 10.0,
+ "script": "scripts/build_open_body_priors.py",
+ "mdfm_head": "d84123a",
+ "run_at": "2026-11-13T19:48:00"
+}

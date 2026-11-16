@@ -1,0 +1,497 @@
+{
+ "quick": false,
+ "moveatlas_head": "f2e6f99271b1bc10a578a67d368fa850ae03f3eb",
+ "moveatlas_diff_sha256": "6c011d0bd093e93abff2c850e72b2aea1dd2bb9bcd17f813303c8c9801fa9e57",
+ "moveatlas_unchanged_during_run": true,
+ "manifest_note": "reports/manifest_tiers was built on 2026-09-28 (run_at 2026-09-28T11:18:21, MoveAtlas f2e6f99), before batch 0002B2, applied to MoveAtlas on 2026-09-29 and not committed (docs/moveatlas_corrections/0002B2_log.md): it predates the 0002B2 record changes.",
+ "reader_stats": {
+  "pads": {
+   "records": 8250,
+   "seconds": 17.8
+  },
+  "weargait_pd": {
+   "records": 2229,
+   "seconds": 58.3
+  },
+  "physionet_gaitpdb": {
+   "records": 232,
+   "seconds": 1.3
+  },
+  "gaitndd": {
+   "records": 51,
+   "seconds": 1.8
+  },
+  "clinical_gait_multipatho": {
+   "records": 1085,
+   "seconds": 9.6
+  },
+  "imu_inthewild_iprognosis": {
+   "records": 837,
+   "seconds": 3.8
+  },
+  "modys_video": {
+   "records": 73,
+   "seconds": 0.2
+  },
+  "stroke_gait_vancriekinge": {
+   "records": 1773,
+   "seconds": 10.1
+  },
+  "gaitrec": {
+   "records": 62163,
+   "seconds": 62.9
+  }
+ },
+ "reader_checks": {
+  "pads": {
+   "lockbox_rows_tried": 1,
+   "lockbox_rows_refused": 1,
+   "load_rows_compared": 3,
+   "load_rows_equal": 3
+  },
+  "weargait_pd": {
+   "lockbox_rows_tried": 1,
+   "lockbox_rows_refused": 1,
+   "load_rows_compared": 3,
+   "load_rows_equal": 3
+  },
+  "physionet_gaitpdb": {
+   "lockbox_rows_tried": 1,
+   "lockbox_rows_refused": 1,
+   "load_rows_compared": 3,
+   "load_rows_equal": 3
+  },
+  "gaitndd": {
+   "lockbox_rows_tried": 1,
+   "lockbox_rows_refused": 1,
+   "load_rows_compared": 3,
+   "load_rows_equal": 3
+  },
+  "clinical_gait_multipatho": {
+   "lockbox_rows_tried": 1,
+   "lockbox_rows_refused": 1,
+   "load_rows_compared": 3,
+   "load_rows_equal": 3
+  },
+  "imu_inthewild_iprognosis": {
+   "lockbox_rows_tried": 1,
+   "lockbox_rows_refused": 1,
+   "load_rows_compared": 3,
+   "load_rows_equal": 3
+  },
+  "modys_video": {
+   "lockbox_rows_tried": 1,
+   "lockbox_rows_refused": 1,
+   "load_rows_compared": 3,
+   "load_rows_equal": 3
+  },
+  "stroke_gait_vancriekinge": {
+   "lockbox_rows_tried": 1,
+   "lockbox_rows_refused": 1,
+   "load_rows_compared": 3,
+   "load_rows_equal": 3
+  },
+  "gaitrec": {
+   "lockbox_rows_tried": 1,
+   "lockbox_rows_refused": 1,
+   "load_rows_compared": 3,
+   "load_rows_equal": 3
+  }
+ },
+ "source_totals": [
+  {
+   "source": "pads",
+   "design_pool": "all groups",
+   "design_training_persons": 375,
+   "design_persons": 469,
+   "index_persons": 469,
+   "index_nonlockbox_persons": 375,
+   "index_lockbox_persons": 94,
+   "persons_read": 375
+  },
+  {
+   "source": "weargait_pd",
+   "design_pool": "all groups",
+   "design_training_persons": 148,
+   "design_persons": 185,
+   "index_persons": 185,
+   "index_nonlockbox_persons": 148,
+   "index_lockbox_persons": 37,
+   "persons_read": 148
+  },
+  {
+   "source": "physionet_gaitpdb",
+   "design_pool": "all groups",
+   "design_training_persons": 132,
+   "design_persons": 165,
+   "index_persons": 165,
+   "index_nonlockbox_persons": 132,
+   "index_lockbox_persons": 33,
+   "persons_read": 132
+  },
+  {
+   "source": "gaitndd",
+   "design_pool": "all groups",
+   "design_training_persons": 51,
+   "design_persons": 64,
+   "index_persons": 64,
+   "index_nonlockbox_persons": 51,
+   "index_lockbox_persons": 13,
+   "persons_read": 51
+  },
+  {
+   "source": "clinical_gait_multipatho",
+   "design_pool": "all groups",
+   "design_training_persons": 208,
+   "design_persons": 260,
+   "index_persons": 260,
+   "index_nonlockbox_persons": 208,
+   "index_lockbox_persons": 52,
+   "persons_read": 208
+  },
+  {
+   "source": "imu_inthewild_iprognosis",
+   "design_pool": "all groups",
+   "design_training_persons": 36,
+   "design_persons": 45,
+   "index_persons": 45,
+   "index_nonlockbox_persons": 36,
+   "index_lockbox_persons": 9,
+   "persons_read": 36
+  },
+  {
+   "source": "modys_video",
+   "design_pool": "all groups",
+   "design_training_persons": 27,
+   "design_persons": 34,
+   "index_persons": 34,
+   "index_nonlockbox_persons": 27,
+   "index_lockbox_persons": 7,
+   "persons_read": 27
+  },
+  {
+   "source": "stroke_gait_vancriekinge",
+   "design_pool": "stroke",
+   "design_training_persons": 40,
+   "design_persons": 50,
+   "index_persons": 50,
+   "index_nonlockbox_persons": 40,
+   "index_lockbox_persons": 10,
+   "persons_read": 40
+  },
+  {
+   "source": "gaitrec",
+   "design_pool": "not HC",
+   "design_training_persons": 1667,
+   "design_persons": 2084,
+   "index_persons": 2084,
+   "index_nonlockbox_persons": 1667,
+   "index_lockbox_persons": 417,
+   "persons_read": 1667
+  },
+  {
+   "source": "koa_pd_nm",
+   "design_pool": "all groups",
+   "design_training_persons": 77,
+   "design_persons": 96,
+   "index_persons": 96,
+   "index_nonlockbox_persons": 77,
+   "index_lockbox_persons": 19,
+   "persons_read": "counts only"
+  }
+ ],
+ "record_fields": {
+  "clinical_gait_multipatho|imu": [
+   "fps",
+   "mag_unit",
+   "n_frames",
+   "source",
+   "subject_ns",
+   "task"
+  ],
+  "gaitndd|force": [
+   "calibration",
+   "fps",
+   "n_frames",
+   "source",
+   "subject_ns",
+   "task",
+   "unit"
+  ],
+  "gaitrec|force": [
+   "affected_side",
+   "authors_partition",
+   "fps",
+   "label",
+   "label_def",
+   "n_frames",
+   "source",
+   "subject_ns",
+   "task"
+  ],
+  "imu_inthewild_iprognosis|imu": [
+   "fps",
+   "n_frames",
+   "source",
+   "subject_ns",
+   "task"
+  ],
+  "modys_video|pose": [
+   "dim",
+   "fps",
+   "modality",
+   "n_frames",
+   "scale",
+   "source",
+   "subject_ns",
+   "take"
+  ],
+  "pads|imu": [
+   "acc_content",
+   "condition",
+   "fps",
+   "n_frames",
+   "source",
+   "subject_ns",
+   "task"
+  ],
+  "physionet_gaitpdb|force": [
+   "fps",
+   "n_frames",
+   "source",
+   "subject_ns",
+   "task"
+  ],
+  "stroke_gait_vancriekinge|emg": [
+   "aux_streams",
+   "channels",
+   "filters",
+   "fps",
+   "label",
+   "n_frames",
+   "notes",
+   "signal_kind",
+   "source",
+   "subject_ns",
+   "task",
+   "unit",
+   "unit_scale"
+  ],
+  "stroke_gait_vancriekinge|force": [
+   "fps",
+   "n_frames",
+   "source",
+   "subject_ns",
+   "task"
+  ],
+  "stroke_gait_vancriekinge|pose": [
+   "analog_labels",
+   "dim",
+   "fps",
+   "group",
+   "label",
+   "label_prefix_stripped",
+   "modality",
+   "n_frames",
+   "nan_filled_joints",
+   "scale",
+   "source",
+   "subject_ns",
+   "take"
+  ],
+  "weargait_pd|force": [
+   "dropout_fraction",
+   "fps",
+   "n_frames",
+   "source",
+   "subject_ns",
+   "task"
+  ],
+  "weargait_pd|imu": [
+   "dropout_fraction",
+   "fps",
+   "mag_unit",
+   "n_frames",
+   "source",
+   "subject_ns",
+   "task"
+  ]
+ },
+ "folds": {
+  "weargait_pd:PD": {
+   "pool": "non-lockbox RELEASE persons of group PD with a imu row in the index",
+   "persons": 80,
+   "dev": 16,
+   "train": 64,
+   "seed": 20260928,
+   "seed_key": "weargait_pd:PD",
+   "share": 0.2,
+   "sha256_pool": "d2ecb5f13f68a0fd44b383b47afc73d8226ebc9ce919d5b5f9fcd4726355545f",
+   "sha256_dev": "13766aa2ba11931cb0c57bd355e68781c38e43a89e69d6cb0a216ae1c68056f5",
+   "sha256_train": "2762fa0b8d8e0923f178d62e0bf08285b6006f46f35c1fc56e30f733806c4d95",
+   "dev_in_lockbox": 0
+  },
+  "stroke_gait_vancriekinge:stroke": {
+   "pool": "non-lockbox RELEASE persons of group stroke with a pose row in the index",
+   "persons": 40,
+   "dev": 8,
+   "train": 32,
+   "seed": 20260928,
+   "seed_key": "stroke_gait_vancriekinge:stroke",
+   "share": 0.2,
+   "sha256_pool": "ab04ebc93bfeb7440750e3504811050efa01ef54cd431d8cc2608375e0247058",
+   "sha256_dev": "0604a51f5d82c40746b1931ae0ff4403180175e6aac4cd4a90b153763666a70c",
+   "sha256_train": "43ccf5f8861258044681e79e2056e52ec05e8f4847a448ed57f907a1ab61a281",
+   "dev_in_lockbox": 0
+  }
+ },
+ "pauses": [],
+ "pauses_logged": 0,
+ "source_boundaries": 8,
+ "extra": {
+  "stroke_patient_mapping": {
+   "mat_subjects": 50,
+   "index_subject_numbers": 50,
+   "training_subjects_with_torso": 40,
+   "subject_numbers_min_max": [
+    3,
+    60
+   ],
+   "corr_height_torso_by_mapping": {
+    "number-2": -0.0068,
+    "number-1": 0.208,
+    "number+0": -0.0376,
+    "number+1": -0.2469,
+    "number+2": 0.2274,
+    "rank-2": -0.302,
+    "rank-1": 0.0548,
+    "rank+0": 0.6574,
+    "rank+1": -0.0633,
+    "rank+2": -0.3431
+   },
+   "mapping_used": "rank+0"
+  }
+ },
+ "weargait": {
+  "persons": 148,
+  "recordings": 1158,
+  "held_share_threshold": 0.5,
+  "PD": {
+   "persons": 80,
+   "persons_all_13_held_in_every_recording": 74,
+   "persons_with_a_site_never_held": 2,
+   "recordings": 590,
+   "recordings_all_13_held": 570
+  },
+  "control": {
+   "persons": 68,
+   "persons_all_13_held_in_every_recording": 51,
+   "persons_with_a_site_never_held": 2,
+   "recordings": 568,
+   "recordings_all_13_held": 525
+  },
+  "layouts": [
+   {
+    "sites_held": "head|trunk|lower_back|wrist_L|wrist_R|thigh_L|thigh_R|shank_L|shank_R|ankle_L|ankle_R|foot_L|foot_R",
+    "recordings": 1095,
+    "persons": 144
+   },
+   {
+    "sites_held": "head|trunk|wrist_L|wrist_R|thigh_L|thigh_R|shank_L|shank_R|ankle_L|ankle_R|foot_L|foot_R",
+    "recordings": 14,
+    "persons": 4
+   },
+   {
+    "sites_held": "trunk|lower_back|wrist_L|wrist_R|thigh_L|thigh_R|shank_L|shank_R|ankle_L|ankle_R|foot_L|foot_R",
+    "recordings": 9,
+    "persons": 2
+   },
+   {
+    "sites_held": "head|trunk|lower_back|wrist_L|wrist_R|shank_L|shank_R|ankle_L|ankle_R|foot_L|foot_R",
+    "recordings": 8,
+    "persons": 1
+   },
+   {
+    "sites_held": "head|trunk|lower_back|wrist_L|wrist_R|foot_L",
+    "recordings": 8,
+    "persons": 1
+   },
+   {
+    "sites_held": "head|trunk|lower_back|wrist_L|wrist_R|thigh_L|thigh_R|shank_L|shank_R|ankle_L|ankle_R|foot_L",
+    "recordings": 5,
+    "persons": 3
+   },
+   {
+    "sites_held": "head|lower_back|wrist_L|wrist_R|thigh_L|thigh_R|shank_L|shank_R|ankle_L|ankle_R|foot_L|foot_R",
+    "recordings": 4,
+    "persons": 4
+   },
+   {
+    "sites_held": "head|trunk|lower_back|wrist_L|wrist_R|thigh_L|thigh_R|shank_L|ankle_L|ankle_R|foot_L|foot_R",
+    "recordings": 3,
+    "persons": 3
+   },
+   {
+    "sites_held": "head|trunk|lower_back|wrist_L|thigh_L|thigh_R|shank_L|shank_R|ankle_L|ankle_R|foot_L|foot_R",
+    "recordings": 3,
+    "persons": 3
+   },
+   {
+    "sites_held": "thigh_L|thigh_R|shank_L|shank_R|ankle_L|ankle_R",
+    "recordings": 2,
+    "persons": 2
+   },
+   {
+    "sites_held": "head|trunk|lower_back|wrist_L|wrist_R|thigh_L|thigh_R|shank_L|shank_R|ankle_L|ankle_R|foot_R",
+    "recordings": 1,
+    "persons": 1
+   },
+   {
+    "sites_held": "head|trunk|lower_back|wrist_L|wrist_R|thigh_R|shank_L|shank_R|ankle_L|ankle_R|foot_L|foot_R",
+    "recordings": 1,
+    "persons": 1
+   },
+   {
+    "sites_held": "head|trunk|lower_back|wrist_L|wrist_R|thigh_L|thigh_R|shank_R|ankle_L|ankle_R|foot_L|foot_R",
+    "recordings": 1,
+    "persons": 1
+   },
+   {
+    "sites_held": "head|trunk|lower_back|wrist_L|wrist_R|thigh_L|thigh_R|shank_L|shank_R|ankle_L|foot_L|foot_R",
+    "recordings": 1,
+    "persons": 1
+   },
+   {
+    "sites_held": "head|trunk|lower_back|wrist_L|wrist_R|thigh_L|shank_L|shank_R|ankle_L|ankle_R|foot_L|foot_R",
+    "recordings": 1,
+    "persons": 1
+   },
+   {
+    "sites_held": "trunk|lower_back|wrist_L|wrist_R|thigh_L|thigh_R",
+    "recordings": 1,
+    "persons": 1
+   },
+   {
+    "sites_held": "head|trunk|lower_back|wrist_L|wrist_R|ankle_L|ankle_R",
+    "recordings": 1,
+    "persons": 1
+   }
+  ],
+  "site_never_held_persons": {
+   "head": 1,
+   "trunk": 0,
+   "lower_back": 1,
+   "wrist_L": 0,
+   "wrist_R": 0,
+   "thigh_L": 2,
+   "thigh_R": 2,
+   "shank_L": 1,
+   "shank_R": 1,
+   "ankle_L": 1,
+   "ankle_R": 1,
+   "foot_L": 0,
+   "foot_R": 1
+  }
+ },
+ "runtime_s": 185.9
+}

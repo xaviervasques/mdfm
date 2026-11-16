@@ -1,0 +1,2340 @@
+{
+ "script": "scripts/openbody_limits.py",
+ "run_at": "2026-11-12T12:45:39",
+ "units": "deg, axis-angle components of the local rotations in the canonical T pose (module docstring)",
+ "sources": {
+  "jarm2022": "Japanese Association of Rehabilitation Medicine, Japanese Orthopaedic Association and Japanese Society for Surgery of the Foot. Joint range of motion: display and measurement (Kansetsu kadoiki hyoji narabini sokuteiho), revision of April 2022, Jpn J Rehabil Med 2021; 58: 1188-1200, J Jpn Soc Surg Foot 2021; 42: S372-S385, J Jpn Orthop Assoc 2022; 96: 75-86 (the measurement table, jarm.or.jp member/document/kadou/03.pdf, read 2026-11-12): the reference ranges of every joint",
+  "bk2024": "B.K. MI et al. 2024, Indian J Plast Surg 57(4): 248-255, doi 10.1055/s-0044-1788593 (abstract): active range of motion of the finger joints, 390 hands of healthy adults (grades.SOURCES)",
+  "boike2025": "Boike S et al. 2025, J Hand Surg Glob Online 7: 100792, doi 10.1016/j.jhsg.2025.100792 (full text, Table 2): active thumb MCP and IP flexion, 162 adults (grades.SOURCES)",
+  "design": "a share of a regional range over the program joints that carry it (stated in this script)",
+  "module": "a value of this script, not taken from a source (stated where used)"
+ },
+ "jarm2022_read": {
+  "url": "https://www.jarm.or.jp/member/document/kadou/03.pdf",
+  "read": "2026-11-12",
+  "sha256": "095201e71baf698c23053cbce51aff6e9f9a5709fe892105f3bba42f62077668",
+  "title": "Kansetsu kadoiki hyoji narabini sokuteiho (2022 nen 4 gatsu kaitei), the measurement table: II upper limb, III fingers, IV lower limb, V trunk, VI other tests"
+ },
+ "jarm2022": {
+  "shoulder_girdle": {
+   "flexion": 20,
+   "extension": 20,
+   "elevation": 20,
+   "depression": 10
+  },
+  "shoulder": {
+   "forward_flexion": 180,
+   "backward_extension": 50,
+   "abduction": 180,
+   "adduction": 0,
+   "external_rotation": 60,
+   "internal_rotation": 80,
+   "horizontal_flexion": 135,
+   "horizontal_extension": 30,
+   "external_rotation_abducted_90": 90,
+   "internal_rotation_abducted_90": 70,
+   "adduction_flexed": 75
+  },
+  "elbow": {
+   "flexion": 145,
+   "extension": 5
+  },
+  "forearm": {
+   "pronation": 90,
+   "supination": 90
+  },
+  "wrist": {
+   "flexion": 90,
+   "extension": 70,
+   "radial_deviation": 25,
+   "ulnar_deviation": 55
+  },
+  "thumb": {
+   "radial_abduction": 60,
+   "ulnar_adduction": 0,
+   "palmar_abduction": 90,
+   "palmar_adduction": 0,
+   "mcp_flexion": 60,
+   "mcp_extension": 10,
+   "ip_flexion": 80,
+   "ip_extension": 10
+  },
+  "finger": {
+   "mcp_flexion": 90,
+   "mcp_extension": 45,
+   "pip_flexion": 100,
+   "pip_extension": 0,
+   "dip_flexion": 80,
+   "dip_extension": 0
+  },
+  "hip": {
+   "flexion": 125,
+   "extension": 15,
+   "abduction": 45,
+   "adduction": 20,
+   "external_rotation": 45,
+   "internal_rotation": 45
+  },
+  "knee": {
+   "flexion": 130,
+   "extension": 0
+  },
+  "foot_and_ankle": {
+   "abduction": 10,
+   "adduction": 20,
+   "dorsiflexion": 20,
+   "plantar_flexion": 45,
+   "inversion": 30,
+   "eversion": 20
+  },
+  "great_toe": {
+   "mtp_flexion": 35,
+   "mtp_extension": 60,
+   "ip_flexion": 60,
+   "ip_extension": 0
+  },
+  "lesser_toe": {
+   "mtp_flexion": 35,
+   "mtp_extension": 40,
+   "pip_flexion": 35,
+   "pip_extension": 0,
+   "dip_flexion": 50,
+   "dip_extension": 0
+  },
+  "cervical": {
+   "flexion": 60,
+   "extension": 50,
+   "rotation_left": 60,
+   "rotation_right": 60,
+   "lateral_bending_left": 50,
+   "lateral_bending_right": 50
+  },
+  "thoracolumbar": {
+   "flexion": 45,
+   "extension": 30,
+   "rotation_left": 40,
+   "rotation_right": 40,
+   "lateral_bending_left": 50,
+   "lateral_bending_right": 50
+  }
+ },
+ "shares": {
+  "thoracolumbar_sagittal": {
+   "spine1": 0.5,
+   "spine2": 0.25,
+   "spine3": 0.25
+  },
+  "thoracolumbar_rotation_bending": {
+   "spine1": 0.3333333333333333,
+   "spine2": 0.3333333333333333,
+   "spine3": 0.3333333333333333
+  },
+  "cervical": {
+   "neck": 0.5,
+   "head": 0.5
+  },
+  "forearm": {
+   "elbow": 0.5,
+   "wrist": 0.5
+  }
+ },
+ "module_deg": 10.0,
+ "cross_steps": 13,
+ "arm_reference_shift_deg": 90.0,
+ "body": {
+  "joints": [
+   "pelvis",
+   "left_hip",
+   "right_hip",
+   "spine1",
+   "left_knee",
+   "right_knee",
+   "spine2",
+   "left_ankle",
+   "right_ankle",
+   "spine3",
+   "left_foot",
+   "right_foot",
+   "neck",
+   "left_collar",
+   "right_collar",
+   "head",
+   "left_shoulder",
+   "right_shoulder",
+   "left_elbow",
+   "right_elbow",
+   "left_wrist",
+   "right_wrist"
+  ],
+  "lo_deg": [
+   [
+    -180.0,
+    -180.0,
+    -180.0
+   ],
+   [
+    -125.0,
+    -45.0,
+    -20.0
+   ],
+   [
+    -125.0,
+    -45.0,
+    -45.0
+   ],
+   [
+    -15.0,
+    -13.333333,
+    -16.666667
+   ],
+   [
+    0.0,
+    -10.0,
+    -10.0
+   ],
+   [
+    0.0,
+    -10.0,
+    -10.0
+   ],
+   [
+    -7.5,
+    -13.333333,
+    -16.666667
+   ],
+   [
+    -20.0,
+    -20.0,
+    -30.0
+   ],
+   [
+    -20.0,
+    -10.0,
+    -20.0
+   ],
+   [
+    -7.5,
+    -13.333333,
+    -16.666667
+   ],
+   [
+    -40.0,
+    -10.0,
+    -10.0
+   ],
+   [
+    -40.0,
+    -10.0,
+    -10.0
+   ],
+   [
+    -25.0,
+    -30.0,
+    -25.0
+   ],
+   [
+    -10.0,
+    -20.0,
+    -10.0
+   ],
+   [
+    -10.0,
+    -20.0,
+    -20.0
+   ],
+   [
+    -25.0,
+    -30.0,
+    -25.0
+   ],
+   [
+    -90.0,
+    -135.0,
+    -90.0
+   ],
+   [
+    -90.0,
+    -30.0,
+    -90.0
+   ],
+   [
+    -45.0,
+    -145.0,
+    -56.2
+   ],
+   [
+    -45.0,
+    -5.0,
+    -56.2
+   ],
+   [
+    -45.0,
+    -25.0,
+    -90.0
+   ],
+   [
+    -45.0,
+    -55.0,
+    -70.0
+   ]
+  ],
+  "hi_deg": [
+   [
+    180.0,
+    180.0,
+    180.0
+   ],
+   [
+    15.0,
+    45.0,
+    45.0
+   ],
+   [
+    15.0,
+    45.0,
+    20.0
+   ],
+   [
+    22.5,
+    13.333333,
+    16.666667
+   ],
+   [
+    130.0,
+    10.0,
+    10.0
+   ],
+   [
+    130.0,
+    10.0,
+    10.0
+   ],
+   [
+    11.25,
+    13.333333,
+    16.666667
+   ],
+   [
+    45.0,
+    10.0,
+    20.0
+   ],
+   [
+    45.0,
+    20.0,
+    30.0
+   ],
+   [
+    11.25,
+    13.333333,
+    16.666667
+   ],
+   [
+    35.0,
+    10.0,
+    10.0
+   ],
+   [
+    35.0,
+    10.0,
+    10.0
+   ],
+   [
+    30.0,
+    30.0,
+    25.0
+   ],
+   [
+    10.0,
+    20.0,
+    20.0
+   ],
+   [
+    10.0,
+    20.0,
+    10.0
+   ],
+   [
+    30.0,
+    30.0,
+    25.0
+   ],
+   [
+    70.0,
+    30.0,
+    90.0
+   ],
+   [
+    70.0,
+    135.0,
+    90.0
+   ],
+   [
+    45.0,
+    5.0,
+    56.2
+   ],
+   [
+    45.0,
+    145.0,
+    56.2
+   ],
+   [
+    45.0,
+    55.0,
+    70.0
+   ],
+   [
+    45.0,
+    25.0,
+    90.0
+   ]
+  ],
+  "root": "row 0 is a world orientation and is not checked (-180 to 180)"
+ },
+ "rows": [
+  {
+   "joint": "left_hip",
+   "component": "x",
+   "lo_deg": -125.0,
+   "hi_deg": 15.0,
+   "source": "jarm2022",
+   "motion_lo": "flexion",
+   "motion_hi": "extension",
+   "rule": ""
+  },
+  {
+   "joint": "left_hip",
+   "component": "y",
+   "lo_deg": -45.0,
+   "hi_deg": 45.0,
+   "source": "jarm2022",
+   "motion_lo": "internal rotation",
+   "motion_hi": "external rotation",
+   "rule": ""
+  },
+  {
+   "joint": "left_hip",
+   "component": "z",
+   "lo_deg": -20.0,
+   "hi_deg": 45.0,
+   "source": "jarm2022",
+   "motion_lo": "adduction",
+   "motion_hi": "abduction",
+   "rule": ""
+  },
+  {
+   "joint": "right_hip",
+   "component": "x",
+   "lo_deg": -125.0,
+   "hi_deg": 15.0,
+   "source": "jarm2022",
+   "motion_lo": "flexion",
+   "motion_hi": "extension",
+   "rule": ""
+  },
+  {
+   "joint": "right_hip",
+   "component": "y",
+   "lo_deg": -45.0,
+   "hi_deg": 45.0,
+   "source": "jarm2022",
+   "motion_lo": "external rotation",
+   "motion_hi": "internal rotation",
+   "rule": ""
+  },
+  {
+   "joint": "right_hip",
+   "component": "z",
+   "lo_deg": -45.0,
+   "hi_deg": 20.0,
+   "source": "jarm2022",
+   "motion_lo": "abduction",
+   "motion_hi": "adduction",
+   "rule": ""
+  },
+  {
+   "joint": "spine1",
+   "component": "x",
+   "lo_deg": -15.0,
+   "hi_deg": 22.5,
+   "source": "jarm2022+design",
+   "motion_lo": "extension",
+   "motion_hi": "flexion",
+   "rule": "thoracolumbar range, share 0.5"
+  },
+  {
+   "joint": "spine1",
+   "component": "y",
+   "lo_deg": -13.333333333333332,
+   "hi_deg": 13.333333333333332,
+   "source": "jarm2022+design",
+   "motion_lo": "rotation to the right",
+   "motion_hi": "rotation to the left",
+   "rule": "thoracolumbar range, share 0.3333"
+  },
+  {
+   "joint": "spine1",
+   "component": "z",
+   "lo_deg": -16.666666666666664,
+   "hi_deg": 16.666666666666664,
+   "source": "jarm2022+design",
+   "motion_lo": "lateral bending to the left",
+   "motion_hi": "lateral bending to the right",
+   "rule": "thoracolumbar range, share 0.3333"
+  },
+  {
+   "joint": "left_knee",
+   "component": "x",
+   "lo_deg": 0.0,
+   "hi_deg": 130.0,
+   "source": "jarm2022",
+   "motion_lo": "extension",
+   "motion_hi": "flexion",
+   "rule": ""
+  },
+  {
+   "joint": "left_knee",
+   "component": "y",
+   "lo_deg": -10.0,
+   "hi_deg": 10.0,
+   "source": "module",
+   "motion_lo": null,
+   "motion_hi": null,
+   "rule": "no jarm2022 row names it: max(MODULE_DEG 10, the cross term of the named motions 0.00 deg rounded up to 0.1)",
+   "cross_term_deg": 0.0
+  },
+  {
+   "joint": "left_knee",
+   "component": "z",
+   "lo_deg": -10.0,
+   "hi_deg": 10.0,
+   "source": "module",
+   "motion_lo": null,
+   "motion_hi": null,
+   "rule": "no jarm2022 row names it: max(MODULE_DEG 10, the cross term of the named motions 0.00 deg rounded up to 0.1)",
+   "cross_term_deg": 0.0
+  },
+  {
+   "joint": "right_knee",
+   "component": "x",
+   "lo_deg": 0.0,
+   "hi_deg": 130.0,
+   "source": "jarm2022",
+   "motion_lo": "extension",
+   "motion_hi": "flexion",
+   "rule": ""
+  },
+  {
+   "joint": "right_knee",
+   "component": "y",
+   "lo_deg": -10.0,
+   "hi_deg": 10.0,
+   "source": "module",
+   "motion_lo": null,
+   "motion_hi": null,
+   "rule": "no jarm2022 row names it: max(MODULE_DEG 10, the cross term of the named motions 0.00 deg rounded up to 0.1)",
+   "cross_term_deg": 0.0
+  },
+  {
+   "joint": "right_knee",
+   "component": "z",
+   "lo_deg": -10.0,
+   "hi_deg": 10.0,
+   "source": "module",
+   "motion_lo": null,
+   "motion_hi": null,
+   "rule": "no jarm2022 row names it: max(MODULE_DEG 10, the cross term of the named motions 0.00 deg rounded up to 0.1)",
+   "cross_term_deg": 0.0
+  },
+  {
+   "joint": "spine2",
+   "component": "x",
+   "lo_deg": -7.5,
+   "hi_deg": 11.25,
+   "source": "jarm2022+design",
+   "motion_lo": "extension",
+   "motion_hi": "flexion",
+   "rule": "thoracolumbar range, share 0.25"
+  },
+  {
+   "joint": "spine2",
+   "component": "y",
+   "lo_deg": -13.333333333333332,
+   "hi_deg": 13.333333333333332,
+   "source": "jarm2022+design",
+   "motion_lo": "rotation to the right",
+   "motion_hi": "rotation to the left",
+   "rule": "thoracolumbar range, share 0.3333"
+  },
+  {
+   "joint": "spine2",
+   "component": "z",
+   "lo_deg": -16.666666666666664,
+   "hi_deg": 16.666666666666664,
+   "source": "jarm2022+design",
+   "motion_lo": "lateral bending to the left",
+   "motion_hi": "lateral bending to the right",
+   "rule": "thoracolumbar range, share 0.3333"
+  },
+  {
+   "joint": "left_ankle",
+   "component": "x",
+   "lo_deg": -20.0,
+   "hi_deg": 45.0,
+   "source": "jarm2022",
+   "motion_lo": "dorsiflexion",
+   "motion_hi": "plantar flexion",
+   "rule": ""
+  },
+  {
+   "joint": "left_ankle",
+   "component": "y",
+   "lo_deg": -20.0,
+   "hi_deg": 10.0,
+   "source": "jarm2022",
+   "motion_lo": "adduction",
+   "motion_hi": "abduction",
+   "rule": ""
+  },
+  {
+   "joint": "left_ankle",
+   "component": "z",
+   "lo_deg": -30.0,
+   "hi_deg": 20.0,
+   "source": "jarm2022",
+   "motion_lo": "inversion",
+   "motion_hi": "eversion",
+   "rule": ""
+  },
+  {
+   "joint": "right_ankle",
+   "component": "x",
+   "lo_deg": -20.0,
+   "hi_deg": 45.0,
+   "source": "jarm2022",
+   "motion_lo": "dorsiflexion",
+   "motion_hi": "plantar flexion",
+   "rule": ""
+  },
+  {
+   "joint": "right_ankle",
+   "component": "y",
+   "lo_deg": -10.0,
+   "hi_deg": 20.0,
+   "source": "jarm2022",
+   "motion_lo": "abduction",
+   "motion_hi": "adduction",
+   "rule": ""
+  },
+  {
+   "joint": "right_ankle",
+   "component": "z",
+   "lo_deg": -20.0,
+   "hi_deg": 30.0,
+   "source": "jarm2022",
+   "motion_lo": "eversion",
+   "motion_hi": "inversion",
+   "rule": ""
+  },
+  {
+   "joint": "spine3",
+   "component": "x",
+   "lo_deg": -7.5,
+   "hi_deg": 11.25,
+   "source": "jarm2022+design",
+   "motion_lo": "extension",
+   "motion_hi": "flexion",
+   "rule": "thoracolumbar range, share 0.25"
+  },
+  {
+   "joint": "spine3",
+   "component": "y",
+   "lo_deg": -13.333333333333332,
+   "hi_deg": 13.333333333333332,
+   "source": "jarm2022+design",
+   "motion_lo": "rotation to the right",
+   "motion_hi": "rotation to the left",
+   "rule": "thoracolumbar range, share 0.3333"
+  },
+  {
+   "joint": "spine3",
+   "component": "z",
+   "lo_deg": -16.666666666666664,
+   "hi_deg": 16.666666666666664,
+   "source": "jarm2022+design",
+   "motion_lo": "lateral bending to the left",
+   "motion_hi": "lateral bending to the right",
+   "rule": "thoracolumbar range, share 0.3333"
+  },
+  {
+   "joint": "left_foot",
+   "component": "x",
+   "lo_deg": -40.0,
+   "hi_deg": 35.0,
+   "source": "jarm2022",
+   "motion_lo": "MTP extension",
+   "motion_hi": "MTP flexion",
+   "rule": "one joint turns the five toes: the smaller of the first toe's and the lesser toes' range"
+  },
+  {
+   "joint": "left_foot",
+   "component": "y",
+   "lo_deg": -10.0,
+   "hi_deg": 10.0,
+   "source": "module",
+   "motion_lo": null,
+   "motion_hi": null,
+   "rule": "no jarm2022 row names it: max(MODULE_DEG 10, the cross term of the named motions 0.00 deg rounded up to 0.1)",
+   "cross_term_deg": 0.0
+  },
+  {
+   "joint": "left_foot",
+   "component": "z",
+   "lo_deg": -10.0,
+   "hi_deg": 10.0,
+   "source": "module",
+   "motion_lo": null,
+   "motion_hi": null,
+   "rule": "no jarm2022 row names it: max(MODULE_DEG 10, the cross term of the named motions 0.00 deg rounded up to 0.1)",
+   "cross_term_deg": 0.0
+  },
+  {
+   "joint": "right_foot",
+   "component": "x",
+   "lo_deg": -40.0,
+   "hi_deg": 35.0,
+   "source": "jarm2022",
+   "motion_lo": "MTP extension",
+   "motion_hi": "MTP flexion",
+   "rule": "one joint turns the five toes: the smaller of the first toe's and the lesser toes' range"
+  },
+  {
+   "joint": "right_foot",
+   "component": "y",
+   "lo_deg": -10.0,
+   "hi_deg": 10.0,
+   "source": "module",
+   "motion_lo": null,
+   "motion_hi": null,
+   "rule": "no jarm2022 row names it: max(MODULE_DEG 10, the cross term of the named motions 0.00 deg rounded up to 0.1)",
+   "cross_term_deg": 0.0
+  },
+  {
+   "joint": "right_foot",
+   "component": "z",
+   "lo_deg": -10.0,
+   "hi_deg": 10.0,
+   "source": "module",
+   "motion_lo": null,
+   "motion_hi": null,
+   "rule": "no jarm2022 row names it: max(MODULE_DEG 10, the cross term of the named motions 0.00 deg rounded up to 0.1)",
+   "cross_term_deg": 0.0
+  },
+  {
+   "joint": "neck",
+   "component": "x",
+   "lo_deg": -25.0,
+   "hi_deg": 30.0,
+   "source": "jarm2022+design",
+   "motion_lo": "extension",
+   "motion_hi": "flexion",
+   "rule": "cervical range, share 0.5"
+  },
+  {
+   "joint": "neck",
+   "component": "y",
+   "lo_deg": -30.0,
+   "hi_deg": 30.0,
+   "source": "jarm2022+design",
+   "motion_lo": "rotation to the right",
+   "motion_hi": "rotation to the left",
+   "rule": "cervical range, share 0.5"
+  },
+  {
+   "joint": "neck",
+   "component": "z",
+   "lo_deg": -25.0,
+   "hi_deg": 25.0,
+   "source": "jarm2022+design",
+   "motion_lo": "lateral bending to the left",
+   "motion_hi": "lateral bending to the right",
+   "rule": "cervical range, share 0.5"
+  },
+  {
+   "joint": "left_collar",
+   "component": "x",
+   "lo_deg": -10.0,
+   "hi_deg": 10.0,
+   "source": "module",
+   "motion_lo": null,
+   "motion_hi": null,
+   "rule": "no jarm2022 row names it: max(MODULE_DEG 10, the cross term of the named motions 3.49 deg rounded up to 0.1)",
+   "cross_term_deg": 3.491
+  },
+  {
+   "joint": "left_collar",
+   "component": "y",
+   "lo_deg": -20.0,
+   "hi_deg": 20.0,
+   "source": "jarm2022",
+   "motion_lo": "girdle flexion",
+   "motion_hi": "girdle extension",
+   "rule": ""
+  },
+  {
+   "joint": "left_collar",
+   "component": "z",
+   "lo_deg": -10.0,
+   "hi_deg": 20.0,
+   "source": "jarm2022",
+   "motion_lo": "depression",
+   "motion_hi": "elevation",
+   "rule": ""
+  },
+  {
+   "joint": "right_collar",
+   "component": "x",
+   "lo_deg": -10.0,
+   "hi_deg": 10.0,
+   "source": "module",
+   "motion_lo": null,
+   "motion_hi": null,
+   "rule": "no jarm2022 row names it: max(MODULE_DEG 10, the cross term of the named motions 3.49 deg rounded up to 0.1)",
+   "cross_term_deg": 3.491
+  },
+  {
+   "joint": "right_collar",
+   "component": "y",
+   "lo_deg": -20.0,
+   "hi_deg": 20.0,
+   "source": "jarm2022",
+   "motion_lo": "girdle extension",
+   "motion_hi": "girdle flexion",
+   "rule": ""
+  },
+  {
+   "joint": "right_collar",
+   "component": "z",
+   "lo_deg": -20.0,
+   "hi_deg": 10.0,
+   "source": "jarm2022",
+   "motion_lo": "elevation",
+   "motion_hi": "depression",
+   "rule": ""
+  },
+  {
+   "joint": "head",
+   "component": "x",
+   "lo_deg": -25.0,
+   "hi_deg": 30.0,
+   "source": "jarm2022+design",
+   "motion_lo": "extension",
+   "motion_hi": "flexion",
+   "rule": "cervical range, share 0.5"
+  },
+  {
+   "joint": "head",
+   "component": "y",
+   "lo_deg": -30.0,
+   "hi_deg": 30.0,
+   "source": "jarm2022+design",
+   "motion_lo": "rotation to the right",
+   "motion_hi": "rotation to the left",
+   "rule": "cervical range, share 0.5"
+  },
+  {
+   "joint": "head",
+   "component": "z",
+   "lo_deg": -25.0,
+   "hi_deg": 25.0,
+   "source": "jarm2022+design",
+   "motion_lo": "lateral bending to the left",
+   "motion_hi": "lateral bending to the right",
+   "rule": "cervical range, share 0.5"
+  },
+  {
+   "joint": "left_shoulder",
+   "component": "x",
+   "lo_deg": -90.0,
+   "hi_deg": 70.0,
+   "source": "jarm2022",
+   "motion_lo": "external rotation at 90 deg abduction",
+   "motion_hi": "internal rotation at 90 deg abduction",
+   "rule": "the humerus' axial rotation in the T pose (section VI rows)"
+  },
+  {
+   "joint": "left_shoulder",
+   "component": "y",
+   "lo_deg": -135.0,
+   "hi_deg": 30.0,
+   "source": "jarm2022",
+   "motion_lo": "horizontal flexion",
+   "motion_hi": "horizontal extension",
+   "rule": "measured from 90 deg of abduction, the T pose"
+  },
+  {
+   "joint": "left_shoulder",
+   "component": "z",
+   "lo_deg": -90.0,
+   "hi_deg": 90.0,
+   "source": "jarm2022",
+   "motion_lo": "adduction to the hanging arm",
+   "motion_hi": "abduction",
+   "rule": "jarm2022 reads abduction from the hanging arm: shifted by the 90 deg of the T pose"
+  },
+  {
+   "joint": "right_shoulder",
+   "component": "x",
+   "lo_deg": -90.0,
+   "hi_deg": 70.0,
+   "source": "jarm2022",
+   "motion_lo": "external rotation at 90 deg abduction",
+   "motion_hi": "internal rotation at 90 deg abduction",
+   "rule": "the humerus' axial rotation in the T pose (section VI rows)"
+  },
+  {
+   "joint": "right_shoulder",
+   "component": "y",
+   "lo_deg": -30.0,
+   "hi_deg": 135.0,
+   "source": "jarm2022",
+   "motion_lo": "horizontal extension",
+   "motion_hi": "horizontal flexion",
+   "rule": "measured from 90 deg of abduction, the T pose"
+  },
+  {
+   "joint": "right_shoulder",
+   "component": "z",
+   "lo_deg": -90.0,
+   "hi_deg": 90.0,
+   "source": "jarm2022",
+   "motion_lo": "abduction",
+   "motion_hi": "adduction to the hanging arm",
+   "rule": "jarm2022 reads abduction from the hanging arm: shifted by the 90 deg of the T pose"
+  },
+  {
+   "joint": "left_elbow",
+   "component": "x",
+   "lo_deg": -45.0,
+   "hi_deg": 45.0,
+   "source": "jarm2022+design",
+   "motion_lo": "supination",
+   "motion_hi": "pronation",
+   "rule": "forearm range, share 0.5 at the elbow"
+  },
+  {
+   "joint": "left_elbow",
+   "component": "y",
+   "lo_deg": -145.0,
+   "hi_deg": 5.0,
+   "source": "jarm2022",
+   "motion_lo": "flexion",
+   "motion_hi": "extension",
+   "rule": ""
+  },
+  {
+   "joint": "left_elbow",
+   "component": "z",
+   "lo_deg": -56.2,
+   "hi_deg": 56.2,
+   "source": "module",
+   "motion_lo": null,
+   "motion_hi": null,
+   "rule": "no jarm2022 row names it: max(MODULE_DEG 10, the cross term of the named motions 56.13 deg rounded up to 0.1)",
+   "cross_term_deg": 56.131
+  },
+  {
+   "joint": "right_elbow",
+   "component": "x",
+   "lo_deg": -45.0,
+   "hi_deg": 45.0,
+   "source": "jarm2022+design",
+   "motion_lo": "supination",
+   "motion_hi": "pronation",
+   "rule": "forearm range, share 0.5 at the elbow"
+  },
+  {
+   "joint": "right_elbow",
+   "component": "y",
+   "lo_deg": -5.0,
+   "hi_deg": 145.0,
+   "source": "jarm2022",
+   "motion_lo": "extension",
+   "motion_hi": "flexion",
+   "rule": ""
+  },
+  {
+   "joint": "right_elbow",
+   "component": "z",
+   "lo_deg": -56.2,
+   "hi_deg": 56.2,
+   "source": "module",
+   "motion_lo": null,
+   "motion_hi": null,
+   "rule": "no jarm2022 row names it: max(MODULE_DEG 10, the cross term of the named motions 56.13 deg rounded up to 0.1)",
+   "cross_term_deg": 56.131
+  },
+  {
+   "joint": "left_wrist",
+   "component": "x",
+   "lo_deg": -45.0,
+   "hi_deg": 45.0,
+   "source": "jarm2022+design",
+   "motion_lo": "supination",
+   "motion_hi": "pronation",
+   "rule": "forearm range, share 0.5 at the wrist"
+  },
+  {
+   "joint": "left_wrist",
+   "component": "y",
+   "lo_deg": -25.0,
+   "hi_deg": 55.0,
+   "source": "jarm2022",
+   "motion_lo": "radial deviation",
+   "motion_hi": "ulnar deviation",
+   "rule": ""
+  },
+  {
+   "joint": "left_wrist",
+   "component": "z",
+   "lo_deg": -90.0,
+   "hi_deg": 70.0,
+   "source": "jarm2022",
+   "motion_lo": "palmar flexion",
+   "motion_hi": "dorsiflexion",
+   "rule": ""
+  },
+  {
+   "joint": "right_wrist",
+   "component": "x",
+   "lo_deg": -45.0,
+   "hi_deg": 45.0,
+   "source": "jarm2022+design",
+   "motion_lo": "supination",
+   "motion_hi": "pronation",
+   "rule": "forearm range, share 0.5 at the wrist"
+  },
+  {
+   "joint": "right_wrist",
+   "component": "y",
+   "lo_deg": -55.0,
+   "hi_deg": 25.0,
+   "source": "jarm2022",
+   "motion_lo": "ulnar deviation",
+   "motion_hi": "radial deviation",
+   "rule": ""
+  },
+  {
+   "joint": "right_wrist",
+   "component": "z",
+   "lo_deg": -70.0,
+   "hi_deg": 90.0,
+   "source": "jarm2022",
+   "motion_lo": "dorsiflexion",
+   "motion_hi": "palmar flexion",
+   "rule": ""
+  }
+ ],
+ "hands": {
+  "joints": {
+   "left_index_mcp": {
+    "joint": 22,
+    "flex_lo_deg": -25.7,
+    "flex_hi_deg": 86.0,
+    "abd_deg": 20.0,
+    "source": "bk2024",
+    "abd_source": "module",
+    "jarm2022_deg": [
+     -45,
+     90
+    ]
+   },
+   "left_index_pip": {
+    "joint": 23,
+    "flex_lo_deg": -13.7,
+    "flex_hi_deg": 97.2,
+    "abd_deg": 0.0,
+    "source": "bk2024",
+    "abd_source": "module",
+    "jarm2022_deg": [
+     0,
+     100
+    ]
+   },
+   "left_index_dip": {
+    "joint": 24,
+    "flex_lo_deg": -6.0,
+    "flex_hi_deg": 81.6,
+    "abd_deg": 0.0,
+    "source": "bk2024",
+    "abd_source": "module",
+    "jarm2022_deg": [
+     0,
+     80
+    ]
+   },
+   "left_middle_mcp": {
+    "joint": 25,
+    "flex_lo_deg": -24.7,
+    "flex_hi_deg": 86.6,
+    "abd_deg": 0.0,
+    "source": "bk2024",
+    "abd_source": "module",
+    "jarm2022_deg": [
+     -45,
+     90
+    ]
+   },
+   "left_middle_pip": {
+    "joint": 26,
+    "flex_lo_deg": -15.6,
+    "flex_hi_deg": 96.2,
+    "abd_deg": 0.0,
+    "source": "bk2024",
+    "abd_source": "module",
+    "jarm2022_deg": [
+     0,
+     100
+    ]
+   },
+   "left_middle_dip": {
+    "joint": 27,
+    "flex_lo_deg": -8.4,
+    "flex_hi_deg": 81.6,
+    "abd_deg": 0.0,
+    "source": "bk2024",
+    "abd_source": "module",
+    "jarm2022_deg": [
+     0,
+     80
+    ]
+   },
+   "left_pinky_mcp": {
+    "joint": 28,
+    "flex_lo_deg": -26.3,
+    "flex_hi_deg": 85.0,
+    "abd_deg": 20.0,
+    "source": "bk2024",
+    "abd_source": "module",
+    "jarm2022_deg": [
+     -45,
+     90
+    ]
+   },
+   "left_pinky_pip": {
+    "joint": 29,
+    "flex_lo_deg": -13.2,
+    "flex_hi_deg": 91.8,
+    "abd_deg": 0.0,
+    "source": "bk2024",
+    "abd_source": "module",
+    "jarm2022_deg": [
+     0,
+     100
+    ]
+   },
+   "left_pinky_dip": {
+    "joint": 30,
+    "flex_lo_deg": -6.8,
+    "flex_hi_deg": 84.6,
+    "abd_deg": 0.0,
+    "source": "bk2024",
+    "abd_source": "module",
+    "jarm2022_deg": [
+     0,
+     80
+    ]
+   },
+   "left_ring_mcp": {
+    "joint": 31,
+    "flex_lo_deg": -22.3,
+    "flex_hi_deg": 84.2,
+    "abd_deg": 20.0,
+    "source": "bk2024",
+    "abd_source": "module",
+    "jarm2022_deg": [
+     -45,
+     90
+    ]
+   },
+   "left_ring_pip": {
+    "joint": 32,
+    "flex_lo_deg": -16.2,
+    "flex_hi_deg": 96.0,
+    "abd_deg": 0.0,
+    "source": "bk2024",
+    "abd_source": "module",
+    "jarm2022_deg": [
+     0,
+     100
+    ]
+   },
+   "left_ring_dip": {
+    "joint": 33,
+    "flex_lo_deg": -8.1,
+    "flex_hi_deg": 81.6,
+    "abd_deg": 0.0,
+    "source": "bk2024",
+    "abd_source": "module",
+    "jarm2022_deg": [
+     0,
+     80
+    ]
+   },
+   "left_thumb_cmc": {
+    "joint": 34,
+    "flex_lo_deg": -45.0,
+    "flex_hi_deg": 45.0,
+    "abd_deg": 45.0,
+    "source": "module",
+    "abd_source": "module",
+    "jarm2022_deg": null
+   },
+   "left_thumb_mcp": {
+    "joint": 35,
+    "flex_lo_deg": -7.4,
+    "flex_hi_deg": 56.0,
+    "abd_deg": 0.0,
+    "source": "boike2025",
+    "abd_source": "module",
+    "jarm2022_deg": [
+     -10,
+     60
+    ]
+   },
+   "left_thumb_ip": {
+    "joint": 36,
+    "flex_lo_deg": -21.5,
+    "flex_hi_deg": 73.2,
+    "abd_deg": 0.0,
+    "source": "boike2025",
+    "abd_source": "module",
+    "jarm2022_deg": [
+     -10,
+     80
+    ]
+   },
+   "right_index_mcp": {
+    "joint": 37,
+    "flex_lo_deg": -25.7,
+    "flex_hi_deg": 86.0,
+    "abd_deg": 20.0,
+    "source": "bk2024",
+    "abd_source": "module",
+    "jarm2022_deg": [
+     -45,
+     90
+    ]
+   },
+   "right_index_pip": {
+    "joint": 38,
+    "flex_lo_deg": -13.7,
+    "flex_hi_deg": 97.2,
+    "abd_deg": 0.0,
+    "source": "bk2024",
+    "abd_source": "module",
+    "jarm2022_deg": [
+     0,
+     100
+    ]
+   },
+   "right_index_dip": {
+    "joint": 39,
+    "flex_lo_deg": -6.0,
+    "flex_hi_deg": 81.6,
+    "abd_deg": 0.0,
+    "source": "bk2024",
+    "abd_source": "module",
+    "jarm2022_deg": [
+     0,
+     80
+    ]
+   },
+   "right_middle_mcp": {
+    "joint": 40,
+    "flex_lo_deg": -24.7,
+    "flex_hi_deg": 86.6,
+    "abd_deg": 0.0,
+    "source": "bk2024",
+    "abd_source": "module",
+    "jarm2022_deg": [
+     -45,
+     90
+    ]
+   },
+   "right_middle_pip": {
+    "joint": 41,
+    "flex_lo_deg": -15.6,
+    "flex_hi_deg": 96.2,
+    "abd_deg": 0.0,
+    "source": "bk2024",
+    "abd_source": "module",
+    "jarm2022_deg": [
+     0,
+     100
+    ]
+   },
+   "right_middle_dip": {
+    "joint": 42,
+    "flex_lo_deg": -8.4,
+    "flex_hi_deg": 81.6,
+    "abd_deg": 0.0,
+    "source": "bk2024",
+    "abd_source": "module",
+    "jarm2022_deg": [
+     0,
+     80
+    ]
+   },
+   "right_pinky_mcp": {
+    "joint": 43,
+    "flex_lo_deg": -26.3,
+    "flex_hi_deg": 85.0,
+    "abd_deg": 20.0,
+    "source": "bk2024",
+    "abd_source": "module",
+    "jarm2022_deg": [
+     -45,
+     90
+    ]
+   },
+   "right_pinky_pip": {
+    "joint": 44,
+    "flex_lo_deg": -13.2,
+    "flex_hi_deg": 91.8,
+    "abd_deg": 0.0,
+    "source": "bk2024",
+    "abd_source": "module",
+    "jarm2022_deg": [
+     0,
+     100
+    ]
+   },
+   "right_pinky_dip": {
+    "joint": 45,
+    "flex_lo_deg": -6.8,
+    "flex_hi_deg": 84.6,
+    "abd_deg": 0.0,
+    "source": "bk2024",
+    "abd_source": "module",
+    "jarm2022_deg": [
+     0,
+     80
+    ]
+   },
+   "right_ring_mcp": {
+    "joint": 46,
+    "flex_lo_deg": -22.3,
+    "flex_hi_deg": 84.2,
+    "abd_deg": 20.0,
+    "source": "bk2024",
+    "abd_source": "module",
+    "jarm2022_deg": [
+     -45,
+     90
+    ]
+   },
+   "right_ring_pip": {
+    "joint": 47,
+    "flex_lo_deg": -16.2,
+    "flex_hi_deg": 96.0,
+    "abd_deg": 0.0,
+    "source": "bk2024",
+    "abd_source": "module",
+    "jarm2022_deg": [
+     0,
+     100
+    ]
+   },
+   "right_ring_dip": {
+    "joint": 48,
+    "flex_lo_deg": -8.1,
+    "flex_hi_deg": 81.6,
+    "abd_deg": 0.0,
+    "source": "bk2024",
+    "abd_source": "module",
+    "jarm2022_deg": [
+     0,
+     80
+    ]
+   },
+   "right_thumb_cmc": {
+    "joint": 49,
+    "flex_lo_deg": -45.0,
+    "flex_hi_deg": 45.0,
+    "abd_deg": 45.0,
+    "source": "module",
+    "abd_source": "module",
+    "jarm2022_deg": null
+   },
+   "right_thumb_mcp": {
+    "joint": 50,
+    "flex_lo_deg": -7.4,
+    "flex_hi_deg": 56.0,
+    "abd_deg": 0.0,
+    "source": "boike2025",
+    "abd_source": "module",
+    "jarm2022_deg": [
+     -10,
+     60
+    ]
+   },
+   "right_thumb_ip": {
+    "joint": 51,
+    "flex_lo_deg": -21.5,
+    "flex_hi_deg": 73.2,
+    "abd_deg": 0.0,
+    "source": "boike2025",
+    "abd_source": "module",
+    "jarm2022_deg": [
+     -10,
+     80
+    ]
+   }
+  },
+  "joint_names": {
+   "22": "left_index_mcp",
+   "23": "left_index_pip",
+   "24": "left_index_dip",
+   "25": "left_middle_mcp",
+   "26": "left_middle_pip",
+   "27": "left_middle_dip",
+   "28": "left_pinky_mcp",
+   "29": "left_pinky_pip",
+   "30": "left_pinky_dip",
+   "31": "left_ring_mcp",
+   "32": "left_ring_pip",
+   "33": "left_ring_dip",
+   "34": "left_thumb_cmc",
+   "35": "left_thumb_mcp",
+   "36": "left_thumb_ip",
+   "37": "right_index_mcp",
+   "38": "right_index_pip",
+   "39": "right_index_dip",
+   "40": "right_middle_mcp",
+   "41": "right_middle_pip",
+   "42": "right_middle_dip",
+   "43": "right_pinky_mcp",
+   "44": "right_pinky_pip",
+   "45": "right_pinky_dip",
+   "46": "right_ring_mcp",
+   "47": "right_ring_pip",
+   "48": "right_ring_dip",
+   "49": "right_thumb_cmc",
+   "50": "right_thumb_mcp",
+   "51": "right_thumb_ip"
+  },
+  "rule": "synth/hands.py FLEX_LIMITS_DEG (bk2024, boike2025) kept as the hand table, the thumb CMC and the knuckles' abduction module bounds (ABDUCTION_LIMIT_DEG, CMC_LIMIT_DEG); jarm2022's finger and thumb rows recorded beside them (jarm2022_deg: extension, flexion)",
+  "abduction_rule": "hand_limit_report reads |abduction| against the knuckle's bound; the middle finger and the thumb's MCP and IP have no abduction axis (hands.hand_frame)"
+ },
+ "against_amass": {
+  "table": "reports/body_store/priors.json joint_limits (0.1 and 99.9 percentiles)",
+  "n_components": 63,
+  "n_tighter": 49,
+  "n_lo_tighter": 38,
+  "n_hi_tighter": 40,
+  "components": [
+   {
+    "component": "left_hip.x",
+    "anatomical_deg": [
+     -125.0,
+     15.0
+    ],
+    "amass_deg": [
+     -95.78,
+     30.97
+    ],
+    "lo_tighter_by_deg": -29.22,
+    "hi_tighter_by_deg": 15.97
+   },
+   {
+    "component": "left_hip.y",
+    "anatomical_deg": [
+     -45.0,
+     45.0
+    ],
+    "amass_deg": [
+     -21.26,
+     22.5
+    ],
+    "lo_tighter_by_deg": -23.74,
+    "hi_tighter_by_deg": -22.5
+   },
+   {
+    "component": "left_hip.z",
+    "anatomical_deg": [
+     -20.0,
+     45.0
+    ],
+    "amass_deg": [
+     -15.69,
+     47.2
+    ],
+    "lo_tighter_by_deg": -4.31,
+    "hi_tighter_by_deg": 2.2
+   },
+   {
+    "component": "right_hip.x",
+    "anatomical_deg": [
+     -125.0,
+     15.0
+    ],
+    "amass_deg": [
+     -96.18,
+     26.87
+    ],
+    "lo_tighter_by_deg": -28.82,
+    "hi_tighter_by_deg": 11.87
+   },
+   {
+    "component": "right_hip.y",
+    "anatomical_deg": [
+     -45.0,
+     45.0
+    ],
+    "amass_deg": [
+     -23.44,
+     17.24
+    ],
+    "lo_tighter_by_deg": -21.56,
+    "hi_tighter_by_deg": -27.76
+   },
+   {
+    "component": "right_hip.z",
+    "anatomical_deg": [
+     -45.0,
+     20.0
+    ],
+    "amass_deg": [
+     -44.63,
+     14.65
+    ],
+    "lo_tighter_by_deg": -0.37,
+    "hi_tighter_by_deg": -5.35
+   },
+   {
+    "component": "spine1.x",
+    "anatomical_deg": [
+     -15.0,
+     22.5
+    ],
+    "amass_deg": [
+     -16.69,
+     82.94
+    ],
+    "lo_tighter_by_deg": 1.69,
+    "hi_tighter_by_deg": 60.44
+   },
+   {
+    "component": "spine1.y",
+    "anatomical_deg": [
+     -13.333333333333332,
+     13.333333333333332
+    ],
+    "amass_deg": [
+     -17.55,
+     18.44
+    ],
+    "lo_tighter_by_deg": 4.22,
+    "hi_tighter_by_deg": 5.1
+   },
+   {
+    "component": "spine1.z",
+    "anatomical_deg": [
+     -16.666666666666664,
+     16.666666666666664
+    ],
+    "amass_deg": [
+     -18.39,
+     18.47
+    ],
+    "lo_tighter_by_deg": 1.73,
+    "hi_tighter_by_deg": 1.81
+   },
+   {
+    "component": "left_knee.x",
+    "anatomical_deg": [
+     0.0,
+     130.0
+    ],
+    "amass_deg": [
+     -14.98,
+     145.08
+    ],
+    "lo_tighter_by_deg": 14.98,
+    "hi_tighter_by_deg": 15.08
+   },
+   {
+    "component": "left_knee.y",
+    "anatomical_deg": [
+     -10.0,
+     10.0
+    ],
+    "amass_deg": [
+     -38.16,
+     34.95
+    ],
+    "lo_tighter_by_deg": 28.16,
+    "hi_tighter_by_deg": 24.95
+   },
+   {
+    "component": "left_knee.z",
+    "anatomical_deg": [
+     -10.0,
+     10.0
+    ],
+    "amass_deg": [
+     -46.19,
+     6.23
+    ],
+    "lo_tighter_by_deg": 36.19,
+    "hi_tighter_by_deg": -3.77
+   },
+   {
+    "component": "right_knee.x",
+    "anatomical_deg": [
+     0.0,
+     130.0
+    ],
+    "amass_deg": [
+     -12.38,
+     146.38
+    ],
+    "lo_tighter_by_deg": 12.38,
+    "hi_tighter_by_deg": 16.38
+   },
+   {
+    "component": "right_knee.y",
+    "anatomical_deg": [
+     -10.0,
+     10.0
+    ],
+    "amass_deg": [
+     -35.33,
+     30.79
+    ],
+    "lo_tighter_by_deg": 25.33,
+    "hi_tighter_by_deg": 20.79
+   },
+   {
+    "component": "right_knee.z",
+    "anatomical_deg": [
+     -10.0,
+     10.0
+    ],
+    "amass_deg": [
+     -9.82,
+     36.77
+    ],
+    "lo_tighter_by_deg": -0.18,
+    "hi_tighter_by_deg": 26.77
+   },
+   {
+    "component": "spine2.x",
+    "anatomical_deg": [
+     -7.5,
+     11.25
+    ],
+    "amass_deg": [
+     -26.79,
+     30.35
+    ],
+    "lo_tighter_by_deg": 19.29,
+    "hi_tighter_by_deg": 19.1
+   },
+   {
+    "component": "spine2.y",
+    "anatomical_deg": [
+     -13.333333333333332,
+     13.333333333333332
+    ],
+    "amass_deg": [
+     -19.52,
+     12.69
+    ],
+    "lo_tighter_by_deg": 6.18,
+    "hi_tighter_by_deg": -0.64
+   },
+   {
+    "component": "spine2.z",
+    "anatomical_deg": [
+     -16.666666666666664,
+     16.666666666666664
+    ],
+    "amass_deg": [
+     -17.46,
+     17.16
+    ],
+    "lo_tighter_by_deg": 0.8,
+    "hi_tighter_by_deg": 0.5
+   },
+   {
+    "component": "left_ankle.x",
+    "anatomical_deg": [
+     -20.0,
+     45.0
+    ],
+    "amass_deg": [
+     -47.8,
+     38.45
+    ],
+    "lo_tighter_by_deg": 27.8,
+    "hi_tighter_by_deg": -6.55
+   },
+   {
+    "component": "left_ankle.y",
+    "anatomical_deg": [
+     -20.0,
+     10.0
+    ],
+    "amass_deg": [
+     -20.4,
+     29.5
+    ],
+    "lo_tighter_by_deg": 0.4,
+    "hi_tighter_by_deg": 19.5
+   },
+   {
+    "component": "left_ankle.z",
+    "anatomical_deg": [
+     -30.0,
+     20.0
+    ],
+    "amass_deg": [
+     -21.97,
+     21.77
+    ],
+    "lo_tighter_by_deg": -8.03,
+    "hi_tighter_by_deg": 1.77
+   },
+   {
+    "component": "right_ankle.x",
+    "anatomical_deg": [
+     -20.0,
+     45.0
+    ],
+    "amass_deg": [
+     -43.78,
+     44.98
+    ],
+    "lo_tighter_by_deg": 23.78,
+    "hi_tighter_by_deg": -0.02
+   },
+   {
+    "component": "right_ankle.y",
+    "anatomical_deg": [
+     -10.0,
+     20.0
+    ],
+    "amass_deg": [
+     -29.0,
+     21.5
+    ],
+    "lo_tighter_by_deg": 19.0,
+    "hi_tighter_by_deg": 1.5
+   },
+   {
+    "component": "right_ankle.z",
+    "anatomical_deg": [
+     -20.0,
+     30.0
+    ],
+    "amass_deg": [
+     -14.48,
+     28.34
+    ],
+    "lo_tighter_by_deg": -5.52,
+    "hi_tighter_by_deg": -1.66
+   },
+   {
+    "component": "spine3.x",
+    "anatomical_deg": [
+     -7.5,
+     11.25
+    ],
+    "amass_deg": [
+     -16.43,
+     14.07
+    ],
+    "lo_tighter_by_deg": 8.93,
+    "hi_tighter_by_deg": 2.82
+   },
+   {
+    "component": "spine3.y",
+    "anatomical_deg": [
+     -13.333333333333332,
+     13.333333333333332
+    ],
+    "amass_deg": [
+     -12.4,
+     13.05
+    ],
+    "lo_tighter_by_deg": -0.94,
+    "hi_tighter_by_deg": -0.28
+   },
+   {
+    "component": "spine3.z",
+    "anatomical_deg": [
+     -16.666666666666664,
+     16.666666666666664
+    ],
+    "amass_deg": [
+     -8.01,
+     11.02
+    ],
+    "lo_tighter_by_deg": -8.65,
+    "hi_tighter_by_deg": -5.65
+   },
+   {
+    "component": "left_foot.x",
+    "anatomical_deg": [
+     -40.0,
+     35.0
+    ],
+    "amass_deg": [
+     -32.32,
+     2.35
+    ],
+    "lo_tighter_by_deg": -7.68,
+    "hi_tighter_by_deg": -32.65
+   },
+   {
+    "component": "left_foot.y",
+    "anatomical_deg": [
+     -10.0,
+     10.0
+    ],
+    "amass_deg": [
+     -4.69,
+     23.07
+    ],
+    "lo_tighter_by_deg": -5.31,
+    "hi_tighter_by_deg": 13.07
+   },
+   {
+    "component": "left_foot.z",
+    "anatomical_deg": [
+     -10.0,
+     10.0
+    ],
+    "amass_deg": [
+     -24.46,
+     22.2
+    ],
+    "lo_tighter_by_deg": 14.46,
+    "hi_tighter_by_deg": 12.2
+   },
+   {
+    "component": "right_foot.x",
+    "anatomical_deg": [
+     -40.0,
+     35.0
+    ],
+    "amass_deg": [
+     -23.91,
+     11.14
+    ],
+    "lo_tighter_by_deg": -16.09,
+    "hi_tighter_by_deg": -23.86
+   },
+   {
+    "component": "right_foot.y",
+    "anatomical_deg": [
+     -10.0,
+     10.0
+    ],
+    "amass_deg": [
+     -18.79,
+     18.16
+    ],
+    "lo_tighter_by_deg": 8.79,
+    "hi_tighter_by_deg": 8.16
+   },
+   {
+    "component": "right_foot.z",
+    "anatomical_deg": [
+     -10.0,
+     10.0
+    ],
+    "amass_deg": [
+     -36.27,
+     17.1
+    ],
+    "lo_tighter_by_deg": 26.27,
+    "hi_tighter_by_deg": 7.1
+   },
+   {
+    "component": "neck.x",
+    "anatomical_deg": [
+     -25.0,
+     30.0
+    ],
+    "amass_deg": [
+     -38.8,
+     43.68
+    ],
+    "lo_tighter_by_deg": 13.8,
+    "hi_tighter_by_deg": 13.68
+   },
+   {
+    "component": "neck.y",
+    "anatomical_deg": [
+     -30.0,
+     30.0
+    ],
+    "amass_deg": [
+     -39.18,
+     39.25
+    ],
+    "lo_tighter_by_deg": 9.18,
+    "hi_tighter_by_deg": 9.25
+   },
+   {
+    "component": "neck.z",
+    "anatomical_deg": [
+     -25.0,
+     25.0
+    ],
+    "amass_deg": [
+     -25.73,
+     18.52
+    ],
+    "lo_tighter_by_deg": 0.73,
+    "hi_tighter_by_deg": -6.48
+   },
+   {
+    "component": "left_collar.x",
+    "anatomical_deg": [
+     -10.0,
+     10.0
+    ],
+    "amass_deg": [
+     -26.86,
+     17.49
+    ],
+    "lo_tighter_by_deg": 16.86,
+    "hi_tighter_by_deg": 7.49
+   },
+   {
+    "component": "left_collar.y",
+    "anatomical_deg": [
+     -20.0,
+     20.0
+    ],
+    "amass_deg": [
+     -60.78,
+     29.51
+    ],
+    "lo_tighter_by_deg": 40.78,
+    "hi_tighter_by_deg": 9.51
+   },
+   {
+    "component": "left_collar.z",
+    "anatomical_deg": [
+     -10.0,
+     20.0
+    ],
+    "amass_deg": [
+     -59.55,
+     40.48
+    ],
+    "lo_tighter_by_deg": 49.55,
+    "hi_tighter_by_deg": 20.48
+   },
+   {
+    "component": "right_collar.x",
+    "anatomical_deg": [
+     -10.0,
+     10.0
+    ],
+    "amass_deg": [
+     -26.89,
+     17.56
+    ],
+    "lo_tighter_by_deg": 16.89,
+    "hi_tighter_by_deg": 7.56
+   },
+   {
+    "component": "right_collar.y",
+    "anatomical_deg": [
+     -20.0,
+     20.0
+    ],
+    "amass_deg": [
+     -25.56,
+     61.42
+    ],
+    "lo_tighter_by_deg": 5.56,
+    "hi_tighter_by_deg": 41.42
+   },
+   {
+    "component": "right_collar.z",
+    "anatomical_deg": [
+     -20.0,
+     10.0
+    ],
+    "amass_deg": [
+     -43.49,
+     68.44
+    ],
+    "lo_tighter_by_deg": 23.49,
+    "hi_tighter_by_deg": 58.44
+   },
+   {
+    "component": "head.x",
+    "anatomical_deg": [
+     -25.0,
+     30.0
+    ],
+    "amass_deg": [
+     -44.36,
+     36.79
+    ],
+    "lo_tighter_by_deg": 19.36,
+    "hi_tighter_by_deg": 6.79
+   },
+   {
+    "component": "head.y",
+    "anatomical_deg": [
+     -30.0,
+     30.0
+    ],
+    "amass_deg": [
+     -37.24,
+     38.86
+    ],
+    "lo_tighter_by_deg": 7.24,
+    "hi_tighter_by_deg": 8.86
+   },
+   {
+    "component": "head.z",
+    "anatomical_deg": [
+     -25.0,
+     25.0
+    ],
+    "amass_deg": [
+     -16.36,
+     26.16
+    ],
+    "lo_tighter_by_deg": -8.64,
+    "hi_tighter_by_deg": 1.16
+   },
+   {
+    "component": "left_shoulder.x",
+    "anatomical_deg": [
+     -90.0,
+     70.0
+    ],
+    "amass_deg": [
+     -34.45,
+     32.57
+    ],
+    "lo_tighter_by_deg": -55.55,
+    "hi_tighter_by_deg": -37.43
+   },
+   {
+    "component": "left_shoulder.y",
+    "anatomical_deg": [
+     -135.0,
+     30.0
+    ],
+    "amass_deg": [
+     -66.61,
+     26.74
+    ],
+    "lo_tighter_by_deg": -68.39,
+    "hi_tighter_by_deg": -3.26
+   },
+   {
+    "component": "left_shoulder.z",
+    "anatomical_deg": [
+     -90.0,
+     90.0
+    ],
+    "amass_deg": [
+     -80.99,
+     25.43
+    ],
+    "lo_tighter_by_deg": -9.01,
+    "hi_tighter_by_deg": -64.57
+   },
+   {
+    "component": "right_shoulder.x",
+    "anatomical_deg": [
+     -90.0,
+     70.0
+    ],
+    "amass_deg": [
+     -46.93,
+     32.88
+    ],
+    "lo_tighter_by_deg": -43.07,
+    "hi_tighter_by_deg": -37.12
+   },
+   {
+    "component": "right_shoulder.y",
+    "anatomical_deg": [
+     -30.0,
+     135.0
+    ],
+    "amass_deg": [
+     -26.6,
+     68.49
+    ],
+    "lo_tighter_by_deg": -3.4,
+    "hi_tighter_by_deg": -66.51
+   },
+   {
+    "component": "right_shoulder.z",
+    "anatomical_deg": [
+     -90.0,
+     90.0
+    ],
+    "amass_deg": [
+     -25.55,
+     80.4
+    ],
+    "lo_tighter_by_deg": -64.45,
+    "hi_tighter_by_deg": -9.6
+   },
+   {
+    "component": "left_elbow.x",
+    "anatomical_deg": [
+     -45.0,
+     45.0
+    ],
+    "amass_deg": [
+     -59.72,
+     55.9
+    ],
+    "lo_tighter_by_deg": 14.72,
+    "hi_tighter_by_deg": 10.9
+   },
+   {
+    "component": "left_elbow.y",
+    "anatomical_deg": [
+     -145.0,
+     5.0
+    ],
+    "amass_deg": [
+     -133.09,
+     7.9
+    ],
+    "lo_tighter_by_deg": -11.91,
+    "hi_tighter_by_deg": 2.9
+   },
+   {
+    "component": "left_elbow.z",
+    "anatomical_deg": [
+     -56.2,
+     56.2
+    ],
+    "amass_deg": [
+     -27.38,
+     66.95
+    ],
+    "lo_tighter_by_deg": -28.82,
+    "hi_tighter_by_deg": 10.75
+   },
+   {
+    "component": "right_elbow.x",
+    "anatomical_deg": [
+     -45.0,
+     45.0
+    ],
+    "amass_deg": [
+     -61.95,
+     51.31
+    ],
+    "lo_tighter_by_deg": 16.95,
+    "hi_tighter_by_deg": 6.31
+   },
+   {
+    "component": "right_elbow.y",
+    "anatomical_deg": [
+     -5.0,
+     145.0
+    ],
+    "amass_deg": [
+     -9.32,
+     135.53
+    ],
+    "lo_tighter_by_deg": 4.32,
+    "hi_tighter_by_deg": -9.47
+   },
+   {
+    "component": "right_elbow.z",
+    "anatomical_deg": [
+     -56.2,
+     56.2
+    ],
+    "amass_deg": [
+     -74.45,
+     29.29
+    ],
+    "lo_tighter_by_deg": 18.25,
+    "hi_tighter_by_deg": -26.91
+   },
+   {
+    "component": "left_wrist.x",
+    "anatomical_deg": [
+     -45.0,
+     45.0
+    ],
+    "amass_deg": [
+     -81.78,
+     54.57
+    ],
+    "lo_tighter_by_deg": 36.78,
+    "hi_tighter_by_deg": 9.57
+   },
+   {
+    "component": "left_wrist.y",
+    "anatomical_deg": [
+     -25.0,
+     55.0
+    ],
+    "amass_deg": [
+     -43.38,
+     17.88
+    ],
+    "lo_tighter_by_deg": 18.38,
+    "hi_tighter_by_deg": -37.12
+   },
+   {
+    "component": "left_wrist.z",
+    "anatomical_deg": [
+     -90.0,
+     70.0
+    ],
+    "amass_deg": [
+     -54.77,
+     77.0
+    ],
+    "lo_tighter_by_deg": -35.23,
+    "hi_tighter_by_deg": 7.0
+   },
+   {
+    "component": "right_wrist.x",
+    "anatomical_deg": [
+     -45.0,
+     45.0
+    ],
+    "amass_deg": [
+     -78.18,
+     62.18
+    ],
+    "lo_tighter_by_deg": 33.18,
+    "hi_tighter_by_deg": 17.18
+   },
+   {
+    "component": "right_wrist.y",
+    "anatomical_deg": [
+     -55.0,
+     25.0
+    ],
+    "amass_deg": [
+     -20.01,
+     36.61
+    ],
+    "lo_tighter_by_deg": -34.99,
+    "hi_tighter_by_deg": 11.61
+   },
+   {
+    "component": "right_wrist.z",
+    "anatomical_deg": [
+     -70.0,
+     90.0
+    ],
+    "amass_deg": [
+     -79.81,
+     64.27
+    ],
+    "lo_tighter_by_deg": 9.81,
+    "hi_tighter_by_deg": -25.73
+   }
+  ]
+ },
+ "base_bodies": {
+  "body_model": "open",
+  "stand": [],
+  "sit": [],
+  "sit_arms_forward": [
+   {
+    "component": "left_collar.y",
+    "read_deg": [
+     -25.0,
+     -25.0
+    ],
+    "bound_deg": [
+     -20.0,
+     20.0
+    ],
+    "excess_deg": 5.0
+   },
+   {
+    "component": "right_collar.y",
+    "read_deg": [
+     25.0,
+     25.0
+    ],
+    "bound_deg": [
+     -20.0,
+     20.0
+    ],
+    "excess_deg": 5.0
+   }
+  ],
+  "walk_8s": [
+   {
+    "component": "left_hip.x",
+    "read_deg": [
+     -44.53,
+     17.38
+    ],
+    "bound_deg": [
+     -125.0,
+     15.0
+    ],
+    "excess_deg": 2.38
+   },
+   {
+    "component": "right_hip.x",
+    "read_deg": [
+     -44.86,
+     18.47
+    ],
+    "bound_deg": [
+     -125.0,
+     15.0
+    ],
+    "excess_deg": 3.47
+   },
+   {
+    "component": "left_ankle.x",
+    "read_deg": [
+     -41.13,
+     19.57
+    ],
+    "bound_deg": [
+     -20.0,
+     45.0
+    ],
+    "excess_deg": 21.13
+   },
+   {
+    "component": "right_ankle.x",
+    "read_deg": [
+     -41.59,
+     19.61
+    ],
+    "bound_deg": [
+     -20.0,
+     45.0
+    ],
+    "excess_deg": 21.59
+   }
+  ]
+ }
+}
